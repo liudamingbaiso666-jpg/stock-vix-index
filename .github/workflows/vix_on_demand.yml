@@ -34,7 +34,7 @@ jobs:
         env:
           STOCK_CODE: ${{ github.event_name == 'workflow_dispatch' && inputs.stock_code || '' }}
         run: |
-          if [ -z "$STOCK_CODE" ]; then STOCK_CODE="$(tr -d '\\r\\n ' < request_stock.txt)"; fi
+          if [ -z "$STOCK_CODE" ]; then STOCK_CODE="$(tr -d '[:space:]' < request_stock.txt)"; fi
           export STOCK_CODE
           python -c "import os,re; c=os.environ['STOCK_CODE']; assert re.fullmatch(r'[0-9]{6}', c), 'Invalid stock code'" 
           python vix_on_demand.py "$STOCK_CODE"
