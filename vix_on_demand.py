@@ -50,8 +50,11 @@ def main(code):
     end = (datetime.now(timezone.utc) + timedelta(days=2)).strftime("%Y%m%d")
     print(f"Downloading stock {code} ...", flush=True)
     stock = prepare(ak.stock_zh_a_hist(symbol=code, period="daily", start_date="20211101", end_date=end, adjust="qfq"), code)
-    print("Downloading CSI 300 ...", flush=True)
-    market = prepare(ak.index_zh_a_hist(symbol="000300", period="daily", start_date="20211101", end_date=end), "000300")
+    print("Downloading CSI 300 from Sina ...", flush=True)
+    # Independent index feed; avoids the Eastmoney push2 index-lookup endpoint.
+    market_raw = ak.stock_zh_index_daily(symbol="sh000300")
+    market_raw = market_raw.rename(columns={"date": "日期", "close": "收盘", "volume": "成交量"})
+    market = prepare(market_raw, "000300")
     df = pd.DataFrame(index=stock.index)
     df["close"] = stock["收盘"]
     df["volume"] = stock["成交量"]
@@ -82,7 +85,7 @@ def main(code):
         "factors": {k: round(float(last[f"p_{k}"]), 2) for k in WEIGHTS},
         "weights": WEIGHTS,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "data_source": "AKShare",
+        "data_source": "AKShare (stock: Eastmoney, CSI 300: Sina)",
         "adjustment": "qfq",
         "status": "ok"
     }
