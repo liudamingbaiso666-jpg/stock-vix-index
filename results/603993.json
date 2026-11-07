@@ -1,0 +1,23 @@
+{
+  "stock_code": "603993",
+  "model": "Stock Fear Index V1.0",
+  "date": "2026-11-06",
+  "close": 13.29,
+  "vix": 55.04,
+  "factors": {
+    "volatility": 15.48,
+    "downside": 65.08,
+    "volume": 81.75,
+    "relative": 91.67
+  },
+  "weights": {
+    "volatility": 0.35,
+    "downside": 0.3,
+    "volume": 0.2,
+    "relative": 0.15
+  },
+  "generated_at_utc": "2026-11-07T23:24:34.077676+00:00",
+  "data_source": "AKShare (stock: Eastmoney, CSI 300: Sina)",
+  "adjustment": "qfq",
+  "status": "ok"
+}
