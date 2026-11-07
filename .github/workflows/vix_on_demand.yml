@@ -1,6 +1,9 @@
 name: On-demand stock VIX
 
 on:
+  push:
+    paths:
+      - "request_stock.txt"
   workflow_dispatch:
     inputs:
       stock_code:
@@ -29,9 +32,11 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Calculate VIX
         env:
-          STOCK_CODE: ${{ inputs.stock_code }}
+          STOCK_CODE: ${{ github.event_name == 'workflow_dispatch' && inputs.stock_code || '' }}
         run: |
-          python -c "import os,re; c=os.environ['STOCK_CODE']; assert re.fullmatch(r'[0-9]{6}', c), 'Invalid stock code'"
+          if [ -z "$STOCK_CODE" ]; then STOCK_CODE="$(tr -d '\\r\\n ' < request_stock.txt)"; fi
+          export STOCK_CODE
+          python -c "import os,re; c=os.environ['STOCK_CODE']; assert re.fullmatch(r'[0-9]{6}', c), 'Invalid stock code'" 
           python vix_on_demand.py "$STOCK_CODE"
       - name: Save result
         run: |
