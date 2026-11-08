@@ -1,0 +1,44 @@
+name: V2.6 Compare 600900 Original PDF Financial Fields
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install pandas pymupdf
+      - name: Extract historical original PDF field evidence
+        id: extract
+        continue-on-error: true
+        run: |
+          python v2/valuation/compare_600900_pdf_fields.py \
+            --pdf-dir v2/valuation/pdf_evidence/600900/run_42476946834 \
+            --audit-file v2/valuation/audit/600900/run_42476685023/historical_fundamental_audit.csv \
+            --output-dir v2/valuation/pdf_compare/600900/run_${{ github.run_id }}
+      - name: Archive comparison report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/pdf_compare/600900/
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.6: original 600900 PDF financial evidence candidates"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-pdf-field-evidence
+          path: v2/valuation/pdf_compare/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
+      - name: Fail if extraction failed
+        if: steps.extract.outcome == 'failure'
+        run: exit 1
