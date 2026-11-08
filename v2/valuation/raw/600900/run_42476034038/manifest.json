@@ -1,0 +1,35 @@
+{
+  "version": "v2_6_600900_collection_v1",
+  "status": "missing_disclosure_dates",
+  "stock": "600900",
+  "collected_utc": "2026-11-08T11:31:11.239548+00:00",
+  "requested_range": [
+    "2020-01-01",
+    "2026-12-31"
+  ],
+  "sources": {
+    "disclosure_api": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+    "financial_api": "AKShare stock_financial_report_sina; source Sina Finance"
+  },
+  "disclosure_count": 0,
+  "full_annual_report_candidates": 0,
+  "financial_periods": {
+    "balance_sheet": 27,
+    "income_statement": 27,
+    "cash_flow": 27
+  },
+  "disclosure_errors": {
+    "annual": "ValueError: announcements=null (API returned no records); response keys=['classifiedAnnouncements', 'totalSecurities', 'totalAnnouncement', 'totalRecordNum', 'announcements', 'categoryList', 'hasMore', 'totalpages']",
+    "semiannual": "ValueError: announcements=null (API returned no records); response keys=['classifiedAnnouncements', 'totalSecurities', 'totalAnnouncement', 'totalRecordNum', 'announcements', 'categoryList', 'hasMore', 'totalpages']",
+    "quarter1": "ValueError: announcements=null (API returned no records); response keys=['classifiedAnnouncements', 'totalSecurities', 'totalAnnouncement', 'totalRecordNum', 'announcements', 'categoryList', 'hasMore', 'totalpages']",
+    "quarter3": "ValueError: announcements=null (API returned no records); response keys=['classifiedAnnouncements', 'totalSecurities', 'totalAnnouncement', 'totalRecordNum', 'announcements', 'categoryList', 'hasMore', 'totalpages']"
+  },
+  "financial_errors": {},
+  "important": [
+    "Financial report periods are NOT publication dates.",
+    "Announcement dates are publication dates for specific documents, not automatically for every numeric row.",
+    "Data not independently audited against original report PDFs.",
+    "No valuation or safety margin generated from unverified data.",
+    "API failures or partial coverage must not be silently filled."
+  ]
+}
