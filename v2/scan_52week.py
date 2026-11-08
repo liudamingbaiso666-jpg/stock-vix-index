@@ -1,0 +1,88 @@
+"""Simple daily 52-week low and price-repair scanner; candidate universe is NOT quality-approved."""
+import argparse
+import json
+import time
+from datetime import datetime
+from pathlib import Path
+import pandas as pd
+import akshare as ak
+
+ROOT = Path(__file__).resolve().parent
+def scan_one(code, name, end_date):
+    start = (pd.Timestamp(end_date) - pd.Timedelta(days=520)).strftime("%Y%m%d")
+    raw = ak.stock_zh_a_hist(symbol=code, period="daily", start_date=start,
+                             end_date=end_date, adjust="qfq")
+    if raw is None or raw.empty:
+        raise ValueError("empty daily history")
+    d = raw.rename(columns={"日期":"date","收盘":"close","最低":"low","成交量":"volume"})
+    d["date"] = pd.to_datetime(d["date"])
+    for k in ("close","low","volume"):
+        d[k] = pd.to_numeric(d[k], errors="coerce")
+    d = d.dropna(subset=["date","close","low","volume"]).sort_values("date").drop_duplicates("date")
+    if len(d) < 253:
+        raise ValueError(f"insufficient sessions: {len(d)}")
+    d = d.iloc[-253:].copy()
+    latest = d.iloc[-1]
+    # Use prior 252 sessions INCLUDING the current session; no future prices.
+    w = d.iloc[-252:]
+    low52 = float(w["low"].min())
+    low_date = w.loc[w["low"].idxmin(),"date"]
+    close = float(latest["close"])
+    def ret(n):
+        return round((close / float(d.iloc[-(n+1)]["close"]) - 1)*100,2)
+    v20 = float(d.iloc[-21:-1]["volume"].mean())
+    ratio = float(latest["volume"])/v20 if v20>0 else None
+    r5,r20,r60=ret(5),ret(20),ret(60)
+    labels=[]
+    if r5 < -6 and ratio is not None and ratio >= 1.8:
+        labels.append("急跌放量（待核实是否恐慌）")
+    elif r5 < 0 and ratio is not None and ratio >= 1.3:
+        labels.append("放量下跌")
+    elif r20 < 0 and ratio is not None and ratio <= 0.8:
+        labels.append("缩量下跌")
+    if r5 > 0 and ratio is not None:
+        labels.append("放量反弹" if ratio>=1.3 else "反弹")
+    if abs(r5) <= 2 and r20 < 0:
+        labels.append("低位震荡（需复核）")
+    if not labels: labels=["走势待观察"]
+    distance=(close/low52-1)*100
+    return {"code":code,"name":name,"date":latest["date"].strftime("%Y-%m-%d"),
+            "close":close,"low52":round(low52,3),"distance_pct":round(distance,2),
+            "ret_5d_pct":r5,"ret_20d_pct":r20,"ret_60d_pct":r60,
+            "volume_ratio_20d":round(ratio,2) if ratio is not None else None,
+            "low_date":low_date.strftime("%Y-%m-%d"),
+            "rebound_from_low_pct":round(distance,2),
+            "sessions_since_low":int((d["date"]>low_date).sum()),
+            "price_behavior":"、".join(labels),"quality_status":"unverified"}
+
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument("--date",default=datetime.now().strftime("%Y%m%d"))
+    p.add_argument("--limit",type=int,default=800)
+    p.add_argument("--sleep",type=float,default=0.15)
+    a=p.parse_args()
+    universe=json.loads((ROOT/"data"/"universe_2026-11-08.json").read_text(encoding="utf-8"))["records"]
+    output=ROOT/"reports";output.mkdir(exist_ok=True)
+    rows=[];errors=[]
+    for i,x in enumerate(universe[:a.limit],1):
+        try:
+            r=scan_one(x["code"],x["name"],a.date)
+            if r["date"]!=pd.Timestamp(a.date).strftime("%Y-%m-%d"):
+                raise ValueError("no trading data for target date")
+            rows.append(r)
+        except Exception as e:
+            errors.append({"code":x["code"],"error":str(e)[:160]})
+        if i%50==0:print(f"{i}/{min(a.limit,len(universe))} scanned, {len(rows)} valid",flush=True)
+        time.sleep(a.sleep)
+    rows.sort(key=lambda x:x["distance_pct"])
+    day=pd.Timestamp(a.date).strftime("%Y-%m-%d")
+    result={"as_of":day,"universe_total":len(universe),"attempted":min(a.limit,len(universe)),
+            "valid":len(rows),"coverage_pct":round(100*len(rows)/len(universe),2),
+            "notes":["Candidate pool only; quality approval requires separate verification",
+                     "Price-based labels are descriptive, not proof of panic or fund flows",
+                     "52-week proximity does not establish intrinsic undervaluation"],
+            "top20":rows[:20],"errors":errors}
+    (output/f"low52_{day}.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+    pd.DataFrame(rows).to_csv(output/f"low52_{day}.csv",index=False,encoding="utf-8-sig")
+    print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"]},ensure_ascii=False))
+if __name__=="__main__":main()
