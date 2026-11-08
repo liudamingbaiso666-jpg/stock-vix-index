@@ -1,0 +1,37 @@
+name: V2.6 Audit 600900 Historical Fundamentals
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install pandas numpy
+      - name: Audit source disclosure dates, cash flow, debt and share capital
+        run: |
+          python v2/valuation/audit_600900_fundamentals.py \
+            --raw-dir v2/valuation/raw/600900/run_42476409498 \
+            --matched-dir v2/valuation/matched/600900/run_42476541882 \
+            --output-dir v2/valuation/audit/600900/run_${{ github.run_id }}
+      - name: Commit audit report
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/audit/600900/
+          git commit -m "V2.6: archive historical 600900 financial audit"
+          git push origin HEAD:v2-stock-universe
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-fundamental-audit
+          path: v2/valuation/audit/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
