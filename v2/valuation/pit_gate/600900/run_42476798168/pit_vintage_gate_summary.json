@@ -1,0 +1,12 @@
+{
+  "report_periods": 27,
+  "provider_date_agreement_candidates": 3,
+  "blocked_for_provider_date_disagreement": 24,
+  "approved_for_historical_valuation": 0,
+  "reason": "Provider-date agreement is insufficient to verify historical statement vintages. Original published PDFs must be checked.",
+  "notes": [
+    "Never backdate financial figures sourced from later provider vintages.",
+    "Do not treat provider's 公告日期 as a definitive publication timestamp for every historical number.",
+    "No intrinsic value or margin-of-safety series is produced."
+  ]
+}
