@@ -1,0 +1,23 @@
+{
+  "stock_code": "002194",
+  "model": "Stock Fear Index V1.0",
+  "date": "2026-11-06",
+  "close": 8.96,
+  "vix": 34.68,
+  "factors": {
+    "volatility": 30.95,
+    "downside": 26.59,
+    "volume": 32.94,
+    "relative": 61.9
+  },
+  "weights": {
+    "volatility": 0.35,
+    "downside": 0.3,
+    "volume": 0.2,
+    "relative": 0.15
+  },
+  "generated_at_utc": "2026-11-08T07:50:23.790522+00:00",
+  "data_source": "AKShare (stock: Eastmoney, CSI 300: Sina)",
+  "adjustment": "qfq",
+  "status": "ok"
+}
