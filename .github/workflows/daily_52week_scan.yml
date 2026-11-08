@@ -1,6 +1,11 @@
 name: Daily 52-week low scanner
 on:
   workflow_dispatch:
+    inputs:
+      trade_date:
+        description: 'Trading date YYYYMMDD (blank = today)'
+        required: false
+        type: string
   schedule:
     - cron: '45 7 * * 1-5'
 permissions:
@@ -19,7 +24,14 @@ jobs:
       - name: Install dependencies
         run: pip install akshare pandas requests
       - name: Scan all candidates
-        run: python v2/scan_52week.py
+        run: |
+          if [ -n "${{ inputs.trade_date }}" ]; then
+            python v2/scan_52week.py --date "${{ inputs.trade_date }}"
+          else
+            python v2/scan_52week.py
+          fi
+        env:
+          PYTHONUNBUFFERED: '1'
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
