@@ -1,9 +1,4 @@
-"""Build a versioned A-share index-union candidate universe.
-
-Run: python v2/build_universe.py
-Requires: akshare, pandas (already in repository requirements.txt).
-Fails closed: never publishes a partial universe when any source fails.
-"""
+"""Build a validated A-share candidate universe from CSI index constituents."""
 from __future__ import annotations
 import datetime as dt
 import json
@@ -11,97 +6,91 @@ from pathlib import Path
 import pandas as pd
 import akshare as ak
 
-INDEXES = {
-    "CSI300": "000300",
-    "CSIA50": "930050",
-    "CSI500": "000905",
-}
+INDEXES = {"CSI300": "000300", "CSIA50": "930050", "CSI500": "000905"}
+EXPECTED = {"000300": 300, "930050": 50, "000905": 500}
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "data"
 
 
 def normalize_code(value: object) -> str:
-    s = str(value).strip()
-    if s.endswith(".0"):
-        s = s[:-2]
-    elif "." in s:
-        s = s.split(".")[0]
-    if not s.isdigit() or len(s) > 6:
+    value = str(value).strip()
+    if value.endswith(".0"):
+        value = value[:-2]
+    if "." in value:
+        value = value.split(".")[0]
+    if not value.isdigit() or len(value) > 6:
         raise ValueError(f"Invalid stock code: {value!r}")
-    return s.zfill(6)
+    return value.zfill(6)
 
 
-def fetch_constituents(index_code: str) -> pd.DataFrame:
-    # AkShare's index_stock_cons endpoint uses index codes; upstream schema
-    # may change, so validate explicitly instead of silently writing bad data.
-    raw = ak.index_stock_cons(symbol=index_code)
+def fetch_constituents(index_code: str) -> tuple[pd.DataFrame, str]:
+    # CSI official constituent snapshot via AkShare; never use duplicate-prone Sina endpoint.
+    raw = ak.index_stock_cons_csindex(symbol=index_code)
     if raw is None or raw.empty:
-        raise RuntimeError(f"Empty constituent data for {index_code}")
-    code_candidates = ["品种代码", "成分券代码", "证券代码", "股票代码", "代码"]
-    name_candidates = ["品种名称", "成分券名称", "证券简称", "股票简称", "名称"]
-    code_col = next((c for c in code_candidates if c in raw.columns), None)
-    name_col = next((c for c in name_candidates if c in raw.columns), None)
-    if code_col is None:
-        raise RuntimeError(f"Unexpected columns for {index_code}: {list(raw.columns)}")
+        raise RuntimeError(f"Empty CSI constituent data for {index_code}")
+    required = {"成分券代码", "成分券名称", "日期"}
+    if not required.issubset(raw.columns):
+        raise RuntimeError(f"Unexpected CSI columns for {index_code}: {list(raw.columns)}")
+    dates = pd.to_datetime(raw["日期"], errors="coerce")
+    if dates.isna().any() or dates.dt.date.nunique() != 1:
+        raise RuntimeError(f"Missing/inconsistent snapshot dates for {index_code}")
+    snapshot_date = dates.iloc[0].date()
+    today_cn = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date()
+    age = (today_cn - snapshot_date).days
+    if age < 0 or age > 45:
+        raise RuntimeError(f"CSI snapshot for {index_code} is future/stale: "
+                           f"{snapshot_date}, age {age} days")
     out = pd.DataFrame({
-        "code": raw[code_col].map(normalize_code),
-        "name": raw[name_col].astype(str).str.strip() if name_col else "",
+        "code": raw["成分券代码"].map(normalize_code),
+        "name": raw["成分券名称"].astype(str).str.strip(),
     })
-    duplicate_rows = out.loc[out.code.duplicated(keep=False)].sort_values("code")
-    if not duplicate_rows.empty:
-        print(f"[DIAGNOSTIC] {index_code}: {len(out)} raw rows, "
-              f"{out.code.nunique()} unique codes, "
-              f"{len(duplicate_rows)} rows involving duplicate codes", flush=True)
-        print(duplicate_rows.head(30).to_string(index=False), flush=True)
-        conflicts = duplicate_rows.groupby("code")["name"].nunique(dropna=False)
-        if (conflicts > 1).any():
-            raise RuntimeError(
-                f"Conflicting names for duplicate codes in {index_code}: "
-                f"{conflicts[conflicts > 1].index.tolist()[:20]}"
-            )
-        out = out.drop_duplicates(subset=["code"], keep="first").copy()
-        print(f"[DIAGNOSTIC] {index_code}: removed duplicate rows; "
-              f"{len(out)} unique codes remain", flush=True)
-    if not 40 <= len(out) <= 600:
-        raise RuntimeError(f"Implausible constituent count for {index_code}: {len(out)}")
-    return out
+    expected = EXPECTED[index_code]
+    if len(out) != expected or out.code.nunique() != expected:
+        raise RuntimeError(f"{index_code}: expected {expected} distinct constituents, "
+                           f"got {len(out)} rows, {out.code.nunique()} distinct")
+    if out["name"].eq("").any() or out["name"].eq("nan").any():
+        raise RuntimeError(f"Missing stock names for {index_code}")
+    print(f"[CSI] {index_code}: {expected} unique stocks, snapshot {snapshot_date}", flush=True)
+    return out, snapshot_date.isoformat()
 
 
 def main() -> None:
-    fetched_at = dt.datetime.now(dt.timezone.utc).isoformat()
-    snapshots = {}
-    rows = {}
-    for index_name, index_code in INDEXES.items():
-        frame = fetch_constituents(index_code)
-        snapshots[index_name] = len(frame)
+    rows: dict[str, dict] = {}
+    counts: dict[str, int] = {}
+    dates: dict[str, str] = {}
+    for name, code in INDEXES.items():
+        frame, snapshot_date = fetch_constituents(code)
+        counts[name] = len(frame)
+        dates[name] = snapshot_date
         for record in frame.to_dict("records"):
-            code = record["code"]
-            if code not in rows:
-                rows[code] = {"code": code, "name": record["name"], "indexes": []}
-            rows[code]["indexes"].append(index_name)
-            if not rows[code]["name"] and record["name"]:
-                rows[code]["name"] = record["name"]
-    if not 500 <= len(rows) <= 900:
-        raise RuntimeError(f"Unexpected union size: {len(rows)}; no files written")
+            stock_code = record["code"]
+            if stock_code not in rows:
+                rows[stock_code] = {"code": stock_code, "name": record["name"], "indexes": []}
+            elif rows[stock_code]["name"] != record["name"]:
+                raise RuntimeError(f"Conflicting stock names across indexes: {stock_code}")
+            rows[stock_code]["indexes"].append(name)
+    if not 800 <= len(rows) <= 850:
+        raise RuntimeError(f"Unexpected union count {len(rows)}; no output written")
+    fetched_at = dt.datetime.now(dt.timezone.utc).isoformat()
     date = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date().isoformat()
-    OUTPUT.mkdir(parents=True, exist_ok=True)
-    output_csv = OUTPUT / f"universe_{date}.csv"
-    output_json = OUTPUT / f"universe_{date}.json"
-    frame = pd.DataFrame([
-        {"code": v["code"], "name": v["name"],
-         "indexes": "|".join(sorted(v["indexes"])),
+    records = [
+        {"code": row["code"], "name": row["name"],
+         "indexes": "|".join(sorted(row["indexes"])),
          "quality_status": "pending", "valuation_status": "pending"}
-        for v in sorted(rows.values(), key=lambda x: x["code"])
-    ])
-    # Avoid publishing partial data: validation above must finish first.
-    frame.to_csv(output_csv, index=False, encoding="utf-8-sig")
-    output_json.write_text(json.dumps({
+        for row in sorted(rows.values(), key=lambda x: x["code"])
+    ]
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    csv_path = OUTPUT / f"universe_{date}.csv"
+    json_path = OUTPUT / f"universe_{date}.json"
+    pd.DataFrame(records).to_csv(csv_path, index=False, encoding="utf-8-sig")
+    json_path.write_text(json.dumps({
         "as_of": date, "fetched_at_utc": fetched_at,
-        "source": "AkShare index_stock_cons",
-        "index_codes": INDEXES, "counts": snapshots,
-        "unique_count": len(rows), "records": frame.to_dict("records")
+        "source": "AKShare index_stock_cons_csindex",
+        "index_codes": INDEXES, "counts": counts,
+        "snapshot_dates": dates, "unique_count": len(rows),
+        "records": records,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Saved {len(rows)} unique stocks to {output_csv}")
+    print(f"Saved {len(rows)} validated candidate stocks to {csv_path}")
 
 
 if __name__ == "__main__":
