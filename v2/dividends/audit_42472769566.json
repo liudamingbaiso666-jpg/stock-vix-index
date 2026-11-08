@@ -1,0 +1,63 @@
+{
+  "model_version": "dividend_audit_v2_2",
+  "source_version": "dividend_raw_v2_2_1",
+  "total_records": 82,
+  "all_expected_cases_present": true,
+  "cases": [
+    {
+      "code": "601899",
+      "row_count": 23,
+      "missing_columns": [],
+      "status_counts": {
+        "实施": 23
+      },
+      "duplicate_key_count": 0,
+      "duplicate_keys": [],
+      "invalid_dates": [],
+      "cash_min_raw": 0.5,
+      "cash_max_raw": 4.2,
+      "unit": "UNVERIFIED: raw 派息 is not per-share dividend",
+      "fiscal_year": "UNVERIFIED: do not infer from announcement/ex-date",
+      "eligible_for_annual_metrics": false
+    },
+    {
+      "code": "600519",
+      "row_count": 31,
+      "missing_columns": [],
+      "status_counts": {
+        "实施": 31
+      },
+      "duplicate_key_count": 0,
+      "duplicate_keys": [],
+      "invalid_dates": [],
+      "cash_min_raw": 0.0,
+      "cash_max_raw": 308.76,
+      "unit": "UNVERIFIED: raw 派息 is not per-share dividend",
+      "fiscal_year": "UNVERIFIED: do not infer from announcement/ex-date",
+      "eligible_for_annual_metrics": false
+    },
+    {
+      "code": "600900",
+      "row_count": 28,
+      "missing_columns": [],
+      "status_counts": {
+        "实施": 26,
+        "预案": 2
+      },
+      "duplicate_key_count": 0,
+      "duplicate_keys": [],
+      "invalid_dates": [],
+      "cash_min_raw": 0.9,
+      "cash_max_raw": 8.533,
+      "unit": "UNVERIFIED: raw 派息 is not per-share dividend",
+      "fiscal_year": "UNVERIFIED: do not infer from announcement/ex-date",
+      "eligible_for_annual_metrics": false
+    }
+  ],
+  "next_required": [
+    "Verify raw 派息 unit against exchange or issuer dividend implementation notice",
+    "Link each implementation to fiscal-year distribution resolution",
+    "Reconcile interim and final payments, share capital adjustments",
+    "Only then calculate payout ratio, cash coverage and trailing yield"
+  ]
+}
