@@ -47,7 +47,7 @@ def evaluate(df):
             # Control pool: same-stock historical observations with fully observed future,
             # exclude +/-20 trading days around every event to reduce event contamination.
             valid = df[f"future_{h}d"].notna() & df[f"excess_{h}d"].notna() & df["panic_score"].notna()
-            mask = valid.to_numpy()
+            mask = valid.to_numpy(dtype=bool, copy=True)
             for i in idx:
                 mask[max(0, i-20):min(len(df), i+21)] = False
             pool = df.iloc[np.flatnonzero(mask)]
