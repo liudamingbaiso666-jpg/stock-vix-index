@@ -29,10 +29,12 @@ def collect_eastmoney_disclosures(session):
     """Fallback notice index. Publication dates from the returned notice records only."""
     url="https://np-anotice-stock.eastmoney.com/api/security/ann"
     records=[]
+    count_seen=0
+    first_payload_keys=[]
     try:
         for page in range(1,30):
             params={"sr":"-1","page_size":"100","page_index":str(page),
-                    "ann_type":"A","stock_list":CODE,"f_node":"0","s_node":"0",
+                    "ann_type":"A","stock_list":CODE,"client_source":"web","f_node":"0","s_node":"0",
                     "begin_time":START,"end_time":END}
             response=session.get(url,params=params,timeout=35,
                                  headers={"Referer":"https://data.eastmoney.com/"})
@@ -40,6 +42,9 @@ def collect_eastmoney_disclosures(session):
             payload=response.json()
             data=payload.get("data") or {}
             items=data.get("list") or []
+            count_seen+=len(items)
+            if page==1:
+                first_payload_keys=list(data.keys())[:12]
             for item in items:
                 title=str(item.get("title",""))
                 if "年度报告" in title:
@@ -53,7 +58,7 @@ def collect_eastmoney_disclosures(session):
                 else:
                     continue
                 published=str(item.get("notice_date",""))[:10]
-                if not re.fullmatch(r"20\\d{2}-\\d{2}-\\d{2}",published):
+                if not re.fullmatch(r"20\d{2}-\d{2}-\d{2}",published):
                     continue
                 art=str(item.get("art_code",""))
                 if not art:
@@ -65,7 +70,7 @@ def collect_eastmoney_disclosures(session):
             if len(items)<100:
                 break
             time.sleep(.3)
-        return records,None
+        return records,(f"Eastmoney returned {count_seen} notice items, but no dated periodic reports. data keys={first_payload_keys}" if not records else None)
     except Exception as exc:
         return records,f"{type(exc).__name__}: {exc}"
 
