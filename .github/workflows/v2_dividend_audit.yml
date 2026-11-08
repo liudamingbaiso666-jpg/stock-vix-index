@@ -1,0 +1,45 @@
+name: V2 Dividend Raw Data Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-dividend-raw-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - name: Audit latest successful raw case collection
+        run: |
+          python - <<'PY'
+          import glob, json, subprocess, os
+          files = sorted(glob.glob("v2/dividends/*/cases_dividend_raw_v2_2_1_run_*.json"))
+          valid = []
+          for path in files:
+              d = json.load(open(path, encoding="utf-8"))
+              if len(d.get("records", [])) == 3 and all(x.get("status") == "raw_collected" for x in d["records"]):
+                  valid.append(path)
+          if not valid:
+              raise SystemExit("No complete raw dividend case archive found")
+          source = valid[-1]
+          out = "v2/dividends/audit_" + os.environ["GITHUB_RUN_ID"] + ".json"
+          subprocess.run(["python", "v2/audit_dividend_cases.py", "--input", source, "--output", out], check=True)
+          PY
+      - name: Commit audit evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/dividends/audit_*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.2: archive raw dividend audit"
+            git push origin HEAD:v2-stock-universe
+          fi
