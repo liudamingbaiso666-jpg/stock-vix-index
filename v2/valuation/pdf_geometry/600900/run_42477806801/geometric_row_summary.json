@@ -1,0 +1,12 @@
+{
+  "periods": 27,
+  "pdfs_processed": 27,
+  "same_row_numeric_candidates": 0,
+  "total_fields": 135,
+  "approved_for_historical_valuation": 0,
+  "limitations": [
+    "PDF row grouping may split wrapped labels or merged numeric columns.",
+    "Matching same row is not proof of current-period consolidated figures.",
+    "Need source table title, units, reporting column and corporate-action validation."
+  ]
+}
