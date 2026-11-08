@@ -82,6 +82,12 @@ def main() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     csv_path = OUTPUT / f"universe_{date}.csv"
     json_path = OUTPUT / f"universe_{date}.json"
+    # Immutable per-day archives: never silently overwrite an earlier snapshot.
+    if csv_path.exists() or json_path.exists():
+        if csv_path.exists() and json_path.exists():
+            print(f"Snapshot for {date} already archived; preserving original files.", flush=True)
+            return
+        raise RuntimeError(f"Incomplete existing snapshot for {date}; manual review required")
     pd.DataFrame(records).to_csv(csv_path, index=False, encoding="utf-8-sig")
     json_path.write_text(json.dumps({
         "as_of": date, "fetched_at_utc": fetched_at,
