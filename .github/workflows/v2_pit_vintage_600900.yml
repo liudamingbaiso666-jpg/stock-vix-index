@@ -1,0 +1,34 @@
+name: V2.6 600900 Point-in-Time Vintage Gate
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - name: Block unverifiable future-vintage financial data
+        run: |
+          python v2/valuation/pit_vintage_gate_600900.py \
+            --audit-file v2/valuation/audit/600900/run_42476685023/historical_fundamental_audit.csv \
+            --output-dir v2/valuation/pit_gate/600900/run_${{ github.run_id }}
+      - name: Save point-in-time quality gate results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/pit_gate/600900/
+          git commit -m "V2.6: archive 600900 PIT financial vintage gate"
+          git push origin HEAD:v2-stock-universe
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-pit-vintage-gate
+          path: v2/valuation/pit_gate/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
