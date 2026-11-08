@@ -1,0 +1,10 @@
+{
+  "periods": 27,
+  "pdfs_found": 27,
+  "pdfs_extracted": 27,
+  "field_numeric_candidate_matches": 75,
+  "total_fields": 135,
+  "original_pdf_financials_verified": 0,
+  "approved_for_historical_valuation": 0,
+  "warning": "Numeric matching is a discovery aid, NOT proof: must verify consolidated tables, units, correct period/column, comparative restatements and source provenance."
+}
