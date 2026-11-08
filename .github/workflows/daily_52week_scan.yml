@@ -1,0 +1,29 @@
+name: Daily 52-week low scanner
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 7 * * 1-5'
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install akshare pandas requests
+      - name: Scan all candidates
+        run: python v2/scan_52week.py
+      - name: Upload results even on partial failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-52week-scan
+          path: v2/reports/
+          if-no-files-found: warn
