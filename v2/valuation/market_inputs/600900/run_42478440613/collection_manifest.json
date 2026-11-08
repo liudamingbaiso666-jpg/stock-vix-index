@@ -1,0 +1,99 @@
+{
+  "stock": "600900",
+  "collected_utc": "2026-11-08T12:03:35.899860+00:00",
+  "sources": {
+    "unadjusted_daily_prices": {
+      "status": "collected_unverified",
+      "rows": 1647,
+      "columns": [
+        "日期",
+        "股票代码",
+        "开盘",
+        "收盘",
+        "最高",
+        "最低",
+        "成交量",
+        "成交额",
+        "振幅",
+        "涨跌幅",
+        "涨跌额",
+        "换手率"
+      ]
+    },
+    "dividend_financing_detail": {
+      "status": "collected_unverified",
+      "rows": 28,
+      "columns": [
+        "公告日期",
+        "送股",
+        "转增",
+        "派息",
+        "进度",
+        "除权除息日",
+        "股权登记日",
+        "红股上市日"
+      ]
+    },
+    "dividend_financing_summary": {
+      "status": "failed",
+      "error": "TypeError: stock_history_dividend() got an unexpected keyword argument 'symbol'"
+    },
+    "share_capital_changes": {
+      "status": "collected_unverified",
+      "rows": 42,
+      "columns": [
+        "证券简称",
+        "机构名称",
+        "境外法人持股",
+        "证券投资基金持股",
+        "国家持股-受限",
+        "国有法人持股",
+        "配售法人股",
+        "发起人股份",
+        "未流通股份",
+        "其中：境外自然人持股",
+        "其他流通受限股份",
+        "其他流通股",
+        "外资持股-受限",
+        "内部职工股",
+        "境外上市外资股-H股",
+        "其中：境内法人持股",
+        "自然人持股",
+        "人民币普通股",
+        "国有法人持股-受限",
+        "一般法人持股",
+        "控股股东、实际控制人",
+        "其中：限售H股",
+        "变动原因",
+        "公告日期",
+        "境内法人持股",
+        "证券代码",
+        "变动日期",
+        "战略投资者持股",
+        "国家持股",
+        "其中：限售B股",
+        "其他未流通股",
+        "流通受限股份",
+        "优先股",
+        "高管股",
+        "总股本",
+        "其中：限售高管股",
+        "转配股",
+        "境内上市外资股-B股",
+        "其中：境外法人持股",
+        "募集法人股",
+        "已流通股份",
+        "其中：境内自然人持股",
+        "其他内资持股-受限",
+        "变动原因编码"
+      ]
+    }
+  },
+  "approved_for_valuation": false,
+  "warnings": [
+    "Daily prices MUST be unadjusted for comparison with contemporaneous per-share fair values.",
+    "Historical share counts and dividends must be checked against original announcements and ex-right dates.",
+    "Provider historical series may be revised and must not be assumed point-in-time.",
+    "No backtest or safety-margin estimate is authorized by collection."
+  ]
+}
