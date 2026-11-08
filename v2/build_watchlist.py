@@ -18,8 +18,10 @@ def build(path):
     same["exhaustion_watch"]=same.get("exhaustion_watch",pd.Series(False,index=same.index)).astype(str).str.lower().eq("true")
     same["research_score"]=2*(same.near_low.astype(int)+same.selloff.astype(int)+same.repair.astype(int)+same.exhaustion_watch.astype(int))+same.quality_status.eq("priority_review").astype(int)
     watch=same[same.near_low|same.selloff|same.repair|same.exhaustion_watch].sort_values(["research_score","distance_pct"],ascending=[False,True]).head(20).copy()
+    watch["repair_score"]=pd.to_numeric(watch.get("repair_score",0),errors="coerce").fillna(0)
+    watch["repair_stage"]=watch.get("repair_stage","未计算")
     watch["reason"]=watch.apply(lambda x:"疑似抛压衰竭" if x.exhaustion_watch else ("异常下跌" if x.selloff else ("低位反弹" if x.repair else "接近52周低点")),axis=1)
-    cols=["code","name","date","close","distance_pct","ret_5d_pct","ret_20d_pct","volume_ratio_20d","quality_status","exhaustion_watch","reason","research_score"]
+    cols=["code","name","date","close","distance_pct","ret_5d_pct","ret_20d_pct","volume_ratio_20d","quality_status","exhaustion_watch","repair_score","repair_stage","reason","research_score"]
     output=Path(path).parent
     watch[cols].to_csv(output/f"watchlist_{date}.csv",index=False,encoding="utf-8-sig")
     payload={"session":date,"total":len(d),"aligned":len(same),"stale":len(d)-len(same),"near_low":int(same.near_low.sum()),"selloff":int(same.selloff.sum()),"repair":int(same.repair.sum()),"model":"heuristic_watchlist_v1_uncalibrated","warning":"Research triage only: not a VIX, valuation, quality approval or buy signal.","watchlist":json.loads(watch[cols].to_json(orient="records",force_ascii=False))}
