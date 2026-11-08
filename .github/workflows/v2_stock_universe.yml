@@ -8,17 +8,28 @@ permissions:
 
 jobs:
   build-universe:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout V2 development branch
+        uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - name: Verify V2 program exists
+        run: |
+          echo "Checked out branch: $(git branch --show-current)"
+          test -f v2/build_universe.py
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
-      - run: pip install -r requirements.txt
-      - run: python v2/build_universe.py
-      - uses: actions/upload-artifact@v4
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Build stock universe
+        run: python v2/build_universe.py
+      - name: Upload generated candidate pool
+        uses: actions/upload-artifact@v4
         with:
           name: v2-stock-universe
           path: |
