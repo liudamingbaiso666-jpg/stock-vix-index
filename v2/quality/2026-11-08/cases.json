@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-08",
+  "universe_date": "2026-11-08",
+  "mode": "cases",
+  "batch": null,
+  "count": 3,
+  "records": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "A_candidate",
+      "reasons": [
+        "Three annual ROE observations >= 10%; qualitative review required"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            22.06,
+            22.58,
+            19.64,
+            22.93,
+            27.91
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            8.707,
+            9.1619,
+            9.0454,
+            12.9735,
+            18.283
+          ],
+          "debt_ratio": [
+            55.4652,
+            59.3342,
+            59.6617,
+            55.1876,
+            51.5586
+          ],
+          "operating_cashflow": [
+            0.9902,
+            1.0892,
+            1.4001,
+            1.8384,
+            2.8368
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow": "每股经营性现金流(元)"
+        }
+      },
+      "error": null
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "A_candidate",
+      "reasons": [
+        "Three annual ROE observations >= 10%; qualitative review required"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            27.68,
+            31.75,
+            34.65,
+            36.99,
+            33.65
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            52.4724,
+            52.6795,
+            52.488,
+            52.2734,
+            50.5279
+          ],
+          "debt_ratio": [
+            22.8127,
+            19.421,
+            17.9843,
+            19.0448,
+            16.4154
+          ],
+          "operating_cashflow": [
+            50.9702,
+            29.214,
+            53.0118,
+            73.606,
+            49.1285
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow": "每股经营性现金流(元)"
+        }
+      },
+      "error": null
+    },
+    {
+      "code": "600900",
+      "name": "长江电力",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "A_candidate",
+      "reasons": [
+        "Three annual ROE observations >= 10%; qualitative review required"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            14.51,
+            11.49,
+            13.53,
+            15.45,
+            15.59
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            47.5961,
+            41.5849,
+            35.7903,
+            38.9744,
+            40.5247
+          ],
+          "debt_ratio": [
+            42.0848,
+            40.1854,
+            62.8811,
+            60.7902,
+            58.2695
+          ],
+          "operating_cashflow": [
+            1.5712,
+            1.3593,
+            2.645,
+            2.4378,
+            2.4752
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow": "每股经营性现金流(元)"
+        }
+      },
+      "error": null
+    }
+  ]
+}
