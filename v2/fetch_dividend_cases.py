@@ -8,6 +8,8 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
+import inspect
 import time
 from pathlib import Path
 
@@ -16,7 +18,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 CASES = {"601899": "紫金矿业", "600519": "贵州茅台", "600900": "长江电力"}
-MODEL = "dividend_raw_v2_2"
+MODEL = "dividend_raw_v2_2_1"
 
 
 def normalize_cell(value):
@@ -33,14 +35,19 @@ def normalize_cell(value):
 
 def collect(code: str, name: str) -> dict:
     entry = {"code": code, "name": name, "source": "akshare.stock_history_dividend_detail",
-             "source_parameters": {"symbol": "分红", "stock": code, "indicator": "分红"},
+             "source_parameters": {"symbol": code, "indicator": "分红"},
              "status": "error", "columns": [], "rows": [], "error": None}
     try:
-        frame = ak.stock_history_dividend_detail(symbol="分红", stock=code, indicator="分红")
+        signature = inspect.signature(ak.stock_history_dividend_detail)
+        if "symbol" not in signature.parameters or "indicator" not in signature.parameters:
+            raise RuntimeError(f"Unexpected dividend API signature: {signature}")
+        frame = ak.stock_history_dividend_detail(symbol=code, indicator="分红")
         if frame is None or frame.empty:
             entry["status"] = "empty"
             return entry
         entry["columns"] = [str(c) for c in frame.columns]
+        if "公告日期" not in entry["columns"]:
+            raise RuntimeError(f"Unexpected dividend response columns: {entry['columns\']}")
         entry["rows"] = [{str(k): normalize_cell(v) for k, v in row.items()}
                          for row in frame.to_dict(orient="records")]
         entry["status"] = "raw_collected"
@@ -67,7 +74,9 @@ def main():
         result["records"].append(entry)
         print(code, entry["status"], len(entry["rows"]), entry["error"] or "", flush=True)
         time.sleep(0.5)
-    out = args.output or ROOT / "dividends" / now.date().isoformat() / "cases_raw_v2_2.json"
+    run_id = os.environ.get("GITHUB_RUN_ID", now.strftime("%H%M%S%f"))
+    attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "1")
+    out = args.output or ROOT / "dividends" / now.date().isoformat() / f"cases_{MODEL}_run_{run_id}_attempt_{attempt}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     if out.exists():
         raise FileExistsError(f"Existing archive preserved: {out}")
