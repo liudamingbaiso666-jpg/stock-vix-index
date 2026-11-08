@@ -68,10 +68,12 @@ def load_quality_status():
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--date",default=datetime.now().strftime("%Y%m%d"))
+    p.add_argument("--date",default=None,help="YYYYMMDD; default uses latest available trading session")
     p.add_argument("--limit",type=int,default=800)
     p.add_argument("--sleep",type=float,default=0.15)
     a=p.parse_args()
+    if a.date is None:
+        a.date = (pd.Timestamp.now(tz="Asia/Shanghai") + pd.Timedelta(days=1)).strftime("%Y%m%d")
     universe=json.loads((ROOT/"data"/"universe_2026-11-08.json").read_text(encoding="utf-8"))["records"]
     output=ROOT/"reports";output.mkdir(exist_ok=True)
     quality = load_quality_status()
@@ -79,8 +81,8 @@ def main():
     for i,x in enumerate(universe[:a.limit],1):
         try:
             r=scan_one(x["code"],x["name"],a.date)
-            if r["date"]!=pd.Timestamp(a.date).strftime("%Y-%m-%d"):
-                raise ValueError("no trading data for target date")
+            if r["date"]>pd.Timestamp(a.date).strftime("%Y-%m-%d"):
+                raise ValueError("future trading date returned")
             r['quality_status'] = quality.get(x['code'], 'unrated')
             rows.append(r)
         except Exception as e:
@@ -98,5 +100,7 @@ def main():
             "quality_note":"Preliminary screening labels only, not confirmed investable quality"}
     (output/f"low52_{day}.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
     pd.DataFrame(rows).to_csv(output/f"low52_{day}.csv",index=False,encoding="utf-8-sig")
-    print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"]},ensure_ascii=False))
+    print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"],"error_examples":errors[:5]},ensure_ascii=False),flush=True)
+    if not rows:
+        raise SystemExit("FAILED: zero valid stock histories; inspect error_examples in logs and artifact")
 if __name__=="__main__":main()
