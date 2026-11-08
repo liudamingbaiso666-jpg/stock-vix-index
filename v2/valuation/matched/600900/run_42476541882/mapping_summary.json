@@ -1,0 +1,12 @@
+{
+  "status": "candidate_mapping_not_pdf_audited",
+  "financial_period_count": 27,
+  "matched_period_count": 27,
+  "unmatched_financial_periods": [],
+  "rejected_notice_count": 20,
+  "notes": [
+    "Only full periodic report titles are accepted.",
+    "Availability date comes from notice index and must be audited against the original PDF.",
+    "No intrinsic value is generated; do not use as completed valuation calibration."
+  ]
+}
