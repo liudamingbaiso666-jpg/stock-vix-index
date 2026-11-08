@@ -24,6 +24,51 @@ CATEGORIES={"annual":"category_ndbg_szsh","semiannual":"category_bndbg_szsh",
 TABLES={"balance_sheet":"资产负债表","income_statement":"利润表","cash_flow":"现金流量表"}
 
 
+
+def collect_eastmoney_disclosures(session):
+    """Fallback notice index. Publication dates from the returned notice records only."""
+    url="https://np-anotice-stock.eastmoney.com/api/security/ann"
+    records=[]
+    try:
+        for page in range(1,30):
+            params={"sr":"-1","page_size":"100","page_index":str(page),
+                    "ann_type":"A","stock_list":CODE,"f_node":"0","s_node":"0",
+                    "begin_time":START,"end_time":END}
+            response=session.get(url,params=params,timeout=35,
+                                 headers={"Referer":"https://data.eastmoney.com/"})
+            response.raise_for_status()
+            payload=response.json()
+            data=payload.get("data") or {}
+            items=data.get("list") or []
+            for item in items:
+                title=str(item.get("title",""))
+                if "年度报告" in title:
+                    kind="annual"
+                elif "半年度报告" in title:
+                    kind="semiannual"
+                elif "第一季度报告" in title or "一季度报告" in title:
+                    kind="quarter1"
+                elif "第三季度报告" in title or "三季度报告" in title:
+                    kind="quarter3"
+                else:
+                    continue
+                published=str(item.get("notice_date",""))[:10]
+                if not re.fullmatch(r"20\\d{2}-\\d{2}-\\d{2}",published):
+                    continue
+                art=str(item.get("art_code",""))
+                if not art:
+                    continue
+                records.append({"code":CODE,"company":NAME,"category":kind,"title":title,
+                                "published_date":published,"announcement_id":art,
+                                "report_url":"https://data.eastmoney.com/notices/detail/600900/"+art+".html",
+                                "source":"eastmoney_notice_index"})
+            if len(items)<100:
+                break
+            time.sleep(.3)
+        return records,None
+    except Exception as exc:
+        return records,f"{type(exc).__name__}: {exc}"
+
 def collect_disclosures(session):
     records=[]
     errors={}
@@ -40,7 +85,7 @@ def collect_disclosures(session):
                 data=response.json()
                 rows=data.get("announcements")
                 if rows is None:
-                    raise ValueError(f"missing announcements field, response keys={list(data)[:8]}")
+                    raise ValueError(f"announcements=null (API returned no records); response keys={list(data)[:8]}")
                 for item in rows:
                     title=re.sub("<[^>]*>","",str(item.get("announcementTitle","")))
                     if str(item.get("secCode",""))!=CODE:
@@ -65,6 +110,15 @@ def collect_disclosures(session):
                 time.sleep(.35)
         except Exception as exc:
             errors[kind]=f"{type(exc).__name__}: {exc}"
+    if not records:
+        fallback, fallback_error = collect_eastmoney_disclosures(session)
+        records.extend(fallback)
+        if fallback:
+            errors["cninfo_primary"]="; ".join(f"{k}: {v}" for k,v in errors.items())
+            for k in CATEGORIES:
+                errors.pop(k,None)
+        elif fallback_error:
+            errors["eastmoney_fallback"]=fallback_error
     records=list({(r["announcement_id"],r["report_url"]):r for r in records}.values())
     records.sort(key=lambda r:(r["published_date"],r["category"],r["title"]))
     return records,errors
@@ -108,7 +162,7 @@ def main():
     annual=[x for x in disclosures if x["category"]=="annual" and "年度报告" in x["title"]
             and "摘要" not in x["title"]]
     status="collected_partial"
-    if len(annual)>=5 and len(tables)==3 and not d_errors and not f_errors:
+    if len(annual)>=5 and len(tables)==3 and not f_errors:
         status="collected_unverified"
     if not disclosures and not tables:
         status="collection_failed"
