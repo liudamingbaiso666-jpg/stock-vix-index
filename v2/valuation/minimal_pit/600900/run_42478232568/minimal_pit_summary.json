@@ -1,0 +1,24 @@
+{
+  "stock": "600900",
+  "report_periods": 27,
+  "annual_periods": 6,
+  "quarterly_or_semiannual_periods": 21,
+  "ttm_profit_candidate_periods": 24,
+  "ttm_fcf_candidate_periods": 24,
+  "approved_valuations": 0,
+  "missing_inputs": [
+    "revenue",
+    "attributable_equity",
+    "dividends",
+    "generation",
+    "unadjusted_daily_close",
+    "verified_actual_shares"
+  ],
+  "important": [
+    "These are provider figures, NOT verified historical vintages.",
+    "Report-index dates are provisional, use next trading session to avoid intraday lookahead.",
+    "TTM across 2022-2023 restructuring is NOT comparable without normalization.",
+    "Capital expenditure is a cashflow proxy; it includes growth investments.",
+    "No fair values or backtest returns are produced."
+  ]
+}
