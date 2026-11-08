@@ -6,6 +6,7 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 import akshare as ak
+from exhaustion_signals import exhaustion_features
 
 ROOT = Path(__file__).resolve().parent
 def scan_one(code, name, end_date):
@@ -14,11 +15,11 @@ def scan_one(code, name, end_date):
                              end_date=end_date, adjust="qfq")
     if raw is None or raw.empty:
         raise ValueError("empty daily history")
-    d = raw.rename(columns={"日期":"date","收盘":"close","最低":"low","成交量":"volume"})
+    d = raw.rename(columns={"日期":"date","开盘":"open","最高":"high","收盘":"close","最低":"low","成交量":"volume","换手率":"turnover_pct"})
     d["date"] = pd.to_datetime(d["date"])
-    for k in ("close","low","volume"):
+    for k in ("open","high","close","low","volume","turnover_pct"):
         d[k] = pd.to_numeric(d[k], errors="coerce")
-    d = d.dropna(subset=["date","close","low","volume"]).sort_values("date").drop_duplicates("date")
+    d = d.dropna(subset=["date","open","high","close","low","volume"]).sort_values("date").drop_duplicates("date")
     if len(d) < 253:
         raise ValueError(f"insufficient sessions: {len(d)}")
     d = d.iloc[-253:].copy()
@@ -46,6 +47,7 @@ def scan_one(code, name, end_date):
         labels.append("低位震荡（需复核）")
     if not labels: labels=["走势待观察"]
     distance=(close/low52-1)*100
+    ex=exhaustion_features(d)
     return {"code":code,"name":name,"date":latest["date"].strftime("%Y-%m-%d"),
             "close":close,"low52":round(low52,3),"distance_pct":round(distance,2),
             "ret_5d_pct":r5,"ret_20d_pct":r20,"ret_60d_pct":r60,
@@ -53,7 +55,12 @@ def scan_one(code, name, end_date):
             "low_date":low_date.strftime("%Y-%m-%d"),
             "rebound_from_low_pct":round(distance,2),
             "sessions_since_low":int((d["date"]>low_date).sum()),
-            "price_behavior":"、".join(labels),"quality_status":"unverified"}
+            "price_behavior":"、".join(labels),
+            "turnover_pct":round(float(latest["turnover_pct"]),3) if pd.notna(latest["turnover_pct"]) else None,
+            "exhaustion_watch":ex["exhaustion_watch"],
+            "exhaustion_evidence_count":ex["evidence_count"],
+            "exhaustion_flags":json.dumps(ex["flags"],ensure_ascii=False),
+            "quality_status":"unverified"}
 
 def load_quality_status():
     statuses = {}
