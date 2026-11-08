@@ -55,6 +55,17 @@ def scan_one(code, name, end_date):
             "sessions_since_low":int((d["date"]>low_date).sum()),
             "price_behavior":"、".join(labels),"quality_status":"unverified"}
 
+def load_quality_status():
+    statuses = {}
+    for path in sorted((ROOT / "quality" / "aggregate").glob("batch_*_quality_v2_1.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            for item in data.get("records", []):
+                statuses[item["code"]] = item.get("status", "unrated")
+        except (ValueError, OSError, KeyError) as exc:
+            print(f"Quality batch unreadable {path.name}: {exc}", flush=True)
+    return statuses
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--date",default=datetime.now().strftime("%Y%m%d"))
@@ -63,12 +74,14 @@ def main():
     a=p.parse_args()
     universe=json.loads((ROOT/"data"/"universe_2026-11-08.json").read_text(encoding="utf-8"))["records"]
     output=ROOT/"reports";output.mkdir(exist_ok=True)
+    quality = load_quality_status()
     rows=[];errors=[]
     for i,x in enumerate(universe[:a.limit],1):
         try:
             r=scan_one(x["code"],x["name"],a.date)
             if r["date"]!=pd.Timestamp(a.date).strftime("%Y-%m-%d"):
                 raise ValueError("no trading data for target date")
+            r['quality_status'] = quality.get(x['code'], 'unrated')
             rows.append(r)
         except Exception as e:
             errors.append({"code":x["code"],"error":str(e)[:160]})
@@ -81,7 +94,8 @@ def main():
             "notes":["Candidate pool only; quality approval requires separate verification",
                      "Price-based labels are descriptive, not proof of panic or fund flows",
                      "52-week proximity does not establish intrinsic undervaluation"],
-            "top20":rows[:20],"errors":errors}
+            "top20":rows[:20],"errors":errors,
+            "quality_note":"Preliminary screening labels only, not confirmed investable quality"}
     (output/f"low52_{day}.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
     pd.DataFrame(rows).to_csv(output/f"low52_{day}.csv",index=False,encoding="utf-8-sig")
     print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"]},ensure_ascii=False))
