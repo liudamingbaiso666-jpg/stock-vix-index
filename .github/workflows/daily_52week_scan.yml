@@ -32,6 +32,12 @@ jobs:
           fi
         env:
           PYTHONUNBUFFERED: '1'
+      - name: Build daily research watchlist
+        run: |
+          for file in v2/reports/low52_*.csv; do
+            [ -f "$file" ] || continue
+            python v2/build_watchlist.py "$file"
+          done
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
