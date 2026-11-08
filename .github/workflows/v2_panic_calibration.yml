@@ -1,0 +1,49 @@
+name: V2.3 Three-Stock Panic Index Calibration
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-panic-calibration
+  cancel-in-progress: false
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Calculate panic and forward-return distributions
+        id: calculate
+        continue-on-error: true
+        run: python v2/panic_index.py --output-dir "v2/panic/results/run_${{ github.run_id }}_attempt_${{ github.run_attempt }}"
+      - name: Archive evidence even on failure
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/panic/results/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.3: archive panic calibration evidence"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v2-panic-calibration
+          path: v2/panic/results/run_*/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Fail on incomplete calibration
+        if: steps.calculate.outcome == 'failure'
+        run: exit 1
