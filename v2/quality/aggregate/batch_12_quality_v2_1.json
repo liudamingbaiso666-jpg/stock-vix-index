@@ -1,0 +1,3899 @@
+{
+  "model_version": "quality_v2_1",
+  "data_limitations": [
+    "Gross margin may be entirely missing from the upstream endpoint",
+    "Thresholds are exploratory and not industry adjusted",
+    "Annual financial data is not point-in-time validated; do not use this output for historical backtests"
+  ],
+  "date": "2026-11-08",
+  "universe_date": "2026-11-08",
+  "mode": "full",
+  "batch": 12,
+  "count": 50,
+  "records": [
+    {
+      "code": "601689",
+      "name": "拓普集团",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.565, 1.077, 1.611] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            9.61,
+            14.02,
+            15.6,
+            15.35,
+            11.53
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            8.8795,
+            10.6233,
+            10.9135,
+            11.2919,
+            9.4068
+          ],
+          "debt_ratio": [
+            43.1537,
+            55.7985,
+            55.1043,
+            47.839,
+            45.0671
+          ],
+          "operating_cashflow_per_share": [
+            1.0769,
+            2.0725,
+            3.054,
+            1.9193,
+            2.5791
+          ],
+          "eps": [
+            0.9236,
+            1.5416,
+            1.9509,
+            1.7815,
+            1.6012
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601696",
+      "name": "中银证券",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.12,
+            4.92,
+            5.23,
+            5.04,
+            5.52
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            74.9347,
+            74.4886,
+            75.1989,
+            75.9853,
+            79.6299
+          ],
+          "operating_cashflow_per_share": [
+            2.5867,
+            2.5036,
+            -2.528,
+            3.2812,
+            0.9928
+          ],
+          "eps": [
+            0.3467,
+            0.2919,
+            0.3246,
+            0.3263,
+            0.3763
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601698",
+      "name": "中国卫通",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [3.522, 3.219, 2.58] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            4.77,
+            6.09,
+            2.28,
+            2.89,
+            2.76
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            27.6164,
+            39.6596,
+            19.4598,
+            22.3452,
+            20.0246
+          ],
+          "debt_ratio": [
+            17.4437,
+            14.3892,
+            14.0534,
+            10.5243,
+            9.6264
+          ],
+          "operating_cashflow_per_share": [
+            0.5673,
+            0.3482,
+            0.4244,
+            0.4327,
+            0.3235
+          ],
+          "eps": [
+            0.1819,
+            0.2566,
+            0.1205,
+            0.1344,
+            0.1254
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.954, 1.731, 8.156] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            19.38,
+            29.07,
+            16.48,
+            5.3,
+            2.46
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            15.1563,
+            28.8119,
+            21.5016,
+            7.9982,
+            2.2039
+          ],
+          "debt_ratio": [
+            64.754,
+            48.0835,
+            43.0408,
+            40.243,
+            41.5632
+          ],
+          "operating_cashflow_per_share": [
+            2.6908,
+            11.2886,
+            2.9592,
+            1.6595,
+            1.6719
+          ],
+          "eps": [
+            2.2874,
+            5.2296,
+            3.1006,
+            0.9585,
+            0.205
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601717",
+      "name": "中创智领",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.881, 0.934, 0.552] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            13.16,
+            14.25,
+            16.07,
+            17.92,
+            17.75
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            7.0705,
+            8.2072,
+            9.5315,
+            11.3967,
+            10.5359
+          ],
+          "debt_ratio": [
+            57.2938,
+            57.9282,
+            55.5026,
+            53.1655,
+            51.4834
+          ],
+          "operating_cashflow_per_share": [
+            1.6607,
+            1.2686,
+            1.7159,
+            2.2082,
+            1.3466
+          ],
+          "eps": [
+            1.1632,
+            1.4775,
+            1.9474,
+            2.3634,
+            2.4403
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601727",
+      "name": "上海电气",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "leverage_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Leverage above 70%: industry-specific balance-sheet review needed",
+        "Operating cash flow per share / EPS: [3.618, 6.544, 3.407] (not a full accrual analysis)"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            -17.18,
+            -6.5,
+            0.54,
+            1.41,
+            2.21
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            -7.8359,
+            -1.9772,
+            1.8867,
+            2.3346,
+            2.4497
+          ],
+          "debt_ratio": [
+            67.3725,
+            67.2961,
+            72.843,
+            74.4202,
+            75.4413
+          ],
+          "operating_cashflow_per_share": [
+            -0.672,
+            0.5445,
+            0.5004,
+            1.1321,
+            0.6767
+          ],
+          "eps": [
+            -0.652,
+            -0.1485,
+            0.1383,
+            0.173,
+            0.1986
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601728",
+      "name": "中国电信",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [4.556, 4.405, 3.748] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.05,
+            6.39,
+            6.87,
+            7.3,
+            7.2
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            6.0241,
+            5.827,
+            5.9917,
+            6.2981,
+            6.3411
+          ],
+          "debt_ratio": [
+            43.4332,
+            45.9665,
+            46.4992,
+            47.3184,
+            46.2169
+          ],
+          "operating_cashflow_per_share": [
+            1.5211,
+            1.4995,
+            1.5149,
+            1.5875,
+            1.3608
+          ],
+          "eps": [
+            0.2858,
+            0.3025,
+            0.3325,
+            0.3604,
+            0.3631
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601766",
+      "name": "中国中车",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.01, 1.732, 1.431] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.93,
+            7.52,
+            7.28,
+            7.34,
+            7.66
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            5.501,
+            6.4377,
+            6.2194,
+            6.3556,
+            6.1874
+          ],
+          "debt_ratio": [
+            57.2914,
+            56.8042,
+            58.3453,
+            59.0123,
+            60.7682
+          ],
+          "operating_cashflow_per_share": [
+            0.7175,
+            0.8346,
+            0.513,
+            0.9452,
+            0.8427
+          ],
+          "eps": [
+            0.4327,
+            0.5001,
+            0.5077,
+            0.5458,
+            0.5887
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601788",
+      "name": "光大证券",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.02,
+            4.98,
+            6.37,
+            4.47,
+            5.18
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            75.4942,
+            74.9242,
+            73.8466,
+            76.3709,
+            77.1143
+          ],
+          "operating_cashflow_per_share": [
+            -1.0481,
+            3.9754,
+            3.3793,
+            7.8906,
+            3.0161
+          ],
+          "eps": [
+            0.7728,
+            0.7028,
+            0.9327,
+            0.6692,
+            0.815
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601799",
+      "name": "星宇股份",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.633, 0.646, 1.5] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            12.08,
+            11.05,
+            12.06,
+            13.84,
+            14.25
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            12.0039,
+            11.414,
+            10.7541,
+            10.6262,
+            10.6451
+          ],
+          "debt_ratio": [
+            34.1425,
+            35.6204,
+            38.162,
+            39.9361,
+            41.0798
+          ],
+          "operating_cashflow_per_share": [
+            1.8187,
+            4.9299,
+            2.4403,
+            3.1826,
+            8.5295
+          ],
+          "eps": [
+            3.3235,
+            3.2954,
+            3.8579,
+            4.9296,
+            5.685
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601800",
+      "name": "中国交建",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "leverage_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Leverage above 70%: industry-specific balance-sheet review needed",
+        "Operating cash flow per share / EPS: [0.399, 0.412, 0.737] (not a full accrual analysis)"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.91,
+            6.77,
+            7.89,
+            7.46,
+            4.74
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            3.4269,
+            3.4355,
+            3.9838,
+            3.9312,
+            2.8456
+          ],
+          "debt_ratio": [
+            71.862,
+            71.8016,
+            72.7403,
+            74.8253,
+            76.8273
+          ],
+          "operating_cashflow_per_share": [
+            -0.7821,
+            0.0274,
+            0.7424,
+            0.7683,
+            0.9421
+          ],
+          "eps": [
+            1.4535,
+            1.5307,
+            1.8584,
+            1.8642,
+            1.2783
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601808",
+      "name": "中海油服",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [3.989, 3.241, 2.781] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            0.82,
+            5.98,
+            7.24,
+            7.16,
+            8.25
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            1.1028,
+            6.9916,
+            7.4421,
+            7.0373,
+            8.0741
+          ],
+          "debt_ratio": [
+            47.8715,
+            48.3079,
+            49.2394,
+            46.4427,
+            44.1754
+          ],
+          "operating_cashflow_per_share": [
+            1.5558,
+            1.446,
+            2.7446,
+            2.3088,
+            2.3661
+          ],
+          "eps": [
+            0.0675,
+            0.5225,
+            0.688,
+            0.7124,
+            0.8508
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601816",
+      "name": "京沪高铁",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.881, 1.584, 1.606] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            2.58,
+            -0.31,
+            5.92,
+            6.31,
+            6.36
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            14.3847,
+            -8.0281,
+            27.5481,
+            30.0576,
+            30.6644
+          ],
+          "debt_ratio": [
+            28.5003,
+            28.1638,
+            25.4289,
+            20.8718,
+            20.1251
+          ],
+          "operating_cashflow_per_share": [
+            0.315,
+            0.1385,
+            0.4293,
+            0.4086,
+            0.4334
+          ],
+          "eps": [
+            0.0858,
+            -0.0316,
+            0.2282,
+            0.258,
+            0.2699
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601818",
+      "name": "光大银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            9.92,
+            8.04,
+            7.64,
+            6.84
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            91.7933,
+            91.9052,
+            91.8086,
+            91.5185,
+            91.5225
+          ],
+          "operating_cashflow_per_share": [
+            -2.0773,
+            -1.0438,
+            -0.0612,
+            -3.4662,
+            2.7571
+          ],
+          "eps": [
+            0.8077,
+            0.8336,
+            0.6952,
+            0.7093,
+            0.6624
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601825",
+      "name": "沪农商行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            10.78,
+            10.8,
+            9.92,
+            9.63
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            91.5976,
+            91.75,
+            91.6422,
+            91.398,
+            91.6683
+          ],
+          "operating_cashflow_per_share": [
+            -0.119,
+            12.964,
+            4.061,
+            5.3091,
+            -1.1791
+          ],
+          "eps": [
+            1.0417,
+            1.1813,
+            1.2948,
+            1.3072,
+            1.3116
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601838",
+      "name": "成都银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            16.37,
+            16.38,
+            14.98,
+            13.37
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            93.2293,
+            93.3061,
+            93.4644,
+            93.1283,
+            92.8963
+          ],
+          "operating_cashflow_per_share": [
+            -0.9748,
+            2.5944,
+            -6.2282,
+            -22.5963,
+            17.6621
+          ],
+          "eps": [
+            2.168,
+            2.6884,
+            3.0603,
+            3.0816,
+            3.1341
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601857",
+      "name": "中国石油",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [2.533, 2.212, 2.398] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            7.29,
+            10.91,
+            11.14,
+            10.87,
+            9.92
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            4.3868,
+            5.0623,
+            5.9877,
+            6.2542,
+            6.0048
+          ],
+          "debt_ratio": [
+            43.6921,
+            42.474,
+            40.7631,
+            37.8911,
+            36.3671
+          ],
+          "operating_cashflow_per_share": [
+            1.8657,
+            2.1515,
+            2.4948,
+            2.2212,
+            2.2539
+          ],
+          "eps": [
+            0.6266,
+            0.8959,
+            0.9851,
+            1.004,
+            0.9398
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601865",
+      "name": "福莱特",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.712, 5.819, 2.932] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            17.95,
+            15.13,
+            12.42,
+            4.64,
+            4.36
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            24.3299,
+            13.73,
+            12.8371,
+            5.4389,
+            6.3765
+          ],
+          "debt_ratio": [
+            41.193,
+            56.6655,
+            48.139,
+            49.2445,
+            46.6513
+          ],
+          "operating_cashflow_per_share": [
+            0.27,
+            0.0824,
+            0.8366,
+            2.5239,
+            1.2425
+          ],
+          "eps": [
+            0.9874,
+            0.9888,
+            1.1751,
+            0.4337,
+            0.4237
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601866",
+      "name": "中远海发",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "leverage_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Leverage above 70%: industry-specific balance-sheet review needed",
+        "Operating cash flow per share / EPS: [3.772, 4.098, 2.985] (not a full accrual analysis)"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            18.63,
+            13.57,
+            4.81,
+            5.56,
+            5.23
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            16.4088,
+            15.3325,
+            9.0124,
+            5.9223,
+            6.897
+          ],
+          "debt_ratio": [
+            75.3508,
+            77.4522,
+            76.7462,
+            75.7803,
+            76.2692
+          ],
+          "operating_cashflow_per_share": [
+            1.073,
+            0.8253,
+            0.3915,
+            0.4938,
+            0.3931
+          ],
+          "eps": [
+            0.4483,
+            0.2886,
+            0.1038,
+            0.1205,
+            0.1317
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601868",
+      "name": "中国能建",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "leverage_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Leverage above 70%: industry-specific balance-sheet review needed",
+        "Operating cash flow per share / EPS: [0.843, 0.933, 1.184] (not a full accrual analysis)"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            6.9,
+            7.66,
+            7.23,
+            7.24,
+            4.87
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            2.9777,
+            2.8403,
+            2.7721,
+            2.7074,
+            2.1539
+          ],
+          "debt_ratio": [
+            71.6875,
+            74.7895,
+            75.9623,
+            76.3144,
+            77.738
+          ],
+          "operating_cashflow_per_share": [
+            0.2121,
+            0.1903,
+            0.2275,
+            0.2645,
+            0.277
+          ],
+          "eps": [
+            0.2302,
+            0.2496,
+            0.27,
+            0.2836,
+            0.234
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601869",
+      "name": "长飞光纤",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.287, 3.068, 4.142] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            7.24,
+            11.5,
+            11.47,
+            5.81,
+            5.89
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            7.5574,
+            8.3963,
+            8.8142,
+            4.7654,
+            6.1883
+          ],
+          "debt_ratio": [
+            45.6583,
+            48.4562,
+            50.596,
+            50.8891,
+            51.1232
+          ],
+          "operating_cashflow_per_share": [
+            0.695,
+            2.1038,
+            1.9981,
+            2.353,
+            4.4122
+          ],
+          "eps": [
+            0.9509,
+            1.5322,
+            1.5529,
+            0.7669,
+            1.0653
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601872",
+      "name": "招商轮船",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.812, 1.627, 1.492] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            13.67,
+            15.39,
+            13.11,
+            12.75,
+            13.98
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            14.9866,
+            17.0557,
+            19.0164,
+            20.1913,
+            21.5448
+          ],
+          "debt_ratio": [
+            55.2954,
+            48.8315,
+            40.1566,
+            42.1558,
+            46.6762
+          ],
+          "operating_cashflow_per_share": [
+            0.8027,
+            0.8608,
+            1.095,
+            1.0408,
+            1.1214
+          ],
+          "eps": [
+            0.4512,
+            0.6235,
+            0.6043,
+            0.6397,
+            0.7518
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601877",
+      "name": "正泰电器",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.837, 2.918, 3.769] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            10.62,
+            11.07,
+            9.43,
+            9.2,
+            10.11
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            9.6906,
+            10.2662,
+            8.6442,
+            8.0739,
+            10.3589
+          ],
+          "debt_ratio": [
+            59.6627,
+            60.184,
+            61.5028,
+            63.2777,
+            66.132
+          ],
+          "operating_cashflow_per_share": [
+            3.2966,
+            2.3705,
+            1.9267,
+            7.0741,
+            10.7448
+          ],
+          "eps": [
+            1.7518,
+            2.1953,
+            2.3029,
+            2.424,
+            2.851
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601878",
+      "name": "浙商证券",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            9.21,
+            6.33,
+            6.49,
+            5.49,
+            6.56
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            80.9688,
+            80.0609,
+            80.5733,
+            76.2961,
+            78.9473
+          ],
+          "operating_cashflow_per_share": [
+            0.445,
+            0.1349,
+            1.524,
+            1.3747,
+            -0.7193
+          ],
+          "eps": [
+            0.5662,
+            0.4387,
+            0.4703,
+            0.4388,
+            0.6215
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601880",
+      "name": "辽港股份",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [2.217, 3.168, 3.543] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            5.05,
+            3.31,
+            3.39,
+            2.87,
+            3.24
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            16.8308,
+            11.9472,
+            12.3344,
+            12.2171,
+            14.1104
+          ],
+          "debt_ratio": [
+            28.989,
+            27.5431,
+            24.1758,
+            27.4037,
+            23.5213
+          ],
+          "operating_cashflow_per_share": [
+            0.1594,
+            0.1423,
+            0.1392,
+            0.1793,
+            0.2409
+          ],
+          "eps": [
+            0.0866,
+            0.0597,
+            0.0628,
+            0.0566,
+            0.068
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601881",
+      "name": "中国银河",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            10.54,
+            7.56,
+            6.04,
+            7.14,
+            8.47
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            82.3296,
+            83.5876,
+            80.3236,
+            80.9485,
+            82.7289
+          ],
+          "operating_cashflow_per_share": [
+            5.6312,
+            3.0382,
+            -4.0478,
+            3.1823,
+            2.2805
+          ],
+          "eps": [
+            1.0375,
+            0.7656,
+            0.721,
+            0.9174,
+            1.145
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601888",
+      "name": "中国中免",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [2.082, 1.633, 1.642] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            32.59,
+            10.36,
+            12.47,
+            7.74,
+            6.47
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            18.2705,
+            11.3686,
+            10.7584,
+            8.6102,
+            6.8715
+          ],
+          "debt_ratio": [
+            37.2831,
+            28.693,
+            24.9625,
+            20.0786,
+            18.4807
+          ],
+          "operating_cashflow_per_share": [
+            4.2658,
+            -1.6508,
+            7.3115,
+            3.8375,
+            2.9285
+          ],
+          "eps": [
+            6.3328,
+            2.9911,
+            3.5122,
+            2.3503,
+            1.7834
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601898",
+      "name": "中煤能源",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.669, 1.368, 1.364] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            11.67,
+            13.95,
+            13.55,
+            12.72,
+            11.17
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            8.2216,
+            11.5053,
+            13.3435,
+            13.1754,
+            14.7507
+          ],
+          "debt_ratio": [
+            55.7396,
+            51.469,
+            47.6808,
+            46.2946,
+            45.8167
+          ],
+          "operating_cashflow_per_share": [
+            3.6283,
+            3.291,
+            3.2405,
+            2.5749,
+            2.247
+          ],
+          "eps": [
+            1.4332,
+            1.9141,
+            1.942,
+            1.8821,
+            1.6472
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "indexes": "CSI300|CSIA50",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.389, 1.24, 1.182] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            22.06,
+            22.58,
+            19.64,
+            22.93,
+            27.91
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            8.707,
+            9.1619,
+            9.0454,
+            12.9735,
+            18.283
+          ],
+          "debt_ratio": [
+            55.4652,
+            59.3342,
+            59.6617,
+            55.1876,
+            51.5586
+          ],
+          "operating_cashflow_per_share": [
+            0.9902,
+            1.0892,
+            1.4001,
+            1.8384,
+            2.8368
+          ],
+          "eps": [
+            0.7444,
+            0.9407,
+            1.0081,
+            1.4822,
+            2.4003
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601901",
+      "name": "方正证券",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            4.41,
+            4.99,
+            4.76,
+            4.58,
+            7.82
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            75.5847,
+            75.8406,
+            79.2794,
+            80.8402,
+            81.1569
+          ],
+          "operating_cashflow_per_share": [
+            1.9993,
+            -0.657,
+            -1.0096,
+            0.04,
+            0.1295
+          ],
+          "eps": [
+            0.2275,
+            0.2676,
+            0.2731,
+            0.2632,
+            0.4752
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601916",
+      "name": "浙商银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            8.36,
+            8.08,
+            7.63,
+            6.37
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            92.7021,
+            93.6715,
+            93.97,
+            93.9035,
+            94.044
+          ],
+          "operating_cashflow_per_share": [
+            -1.7435,
+            7.8879,
+            7.077,
+            -4.3867,
+            -0.464
+          ],
+          "eps": [
+            0.6073,
+            0.6577,
+            0.5641,
+            0.5714,
+            0.4938
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601919",
+      "name": "中远海控",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.796, 1.251, 1.293] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            67.09,
+            54.69,
+            12.17,
+            20.92,
+            13.29
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            31.1221,
+            33.5853,
+            16.1847,
+            23.6875,
+            16.0489
+          ],
+          "debt_ratio": [
+            56.7623,
+            50.4624,
+            47.404,
+            42.6986,
+            41.4157
+          ],
+          "operating_cashflow_per_share": [
+            10.6748,
+            12.2274,
+            1.407,
+            4.3427,
+            2.9404
+          ],
+          "eps": [
+            6.4851,
+            8.1603,
+            1.7669,
+            3.4707,
+            2.2743
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601928",
+      "name": "凤凰传媒",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.879, 1.152, 0.845] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            15.23,
+            12.06,
+            15.42,
+            8.2,
+            9.0
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            19.831,
+            15.4996,
+            21.6989,
+            11.7325,
+            14.7338
+          ],
+          "debt_ratio": [
+            42.7036,
+            40.9041,
+            38.0253,
+            35.7461,
+            33.9252
+          ],
+          "operating_cashflow_per_share": [
+            1.305,
+            0.985,
+            1.0229,
+            0.7228,
+            0.6037
+          ],
+          "eps": [
+            0.9754,
+            0.828,
+            1.1634,
+            0.6273,
+            0.7148
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601939",
+      "name": "建设银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            11.69,
+            11.34,
+            10.56,
+            10.1,
+            9.25
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            91.3594,
+            91.6803,
+            91.7232,
+            91.7578,
+            91.9221
+          ],
+          "operating_cashflow_per_share": [
+            1.7468,
+            3.9135,
+            2.5713,
+            1.352,
+            8.0323
+          ],
+          "eps": [
+            1.2157,
+            1.2926,
+            1.3298,
+            1.3451,
+            1.2989
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.99, 1.122, 0.464] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            4.11,
+            10.15,
+            20.24,
+            17.53,
+            16.7
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            7.6252,
+            16.6452,
+            30.4197,
+            24.417,
+            25.3611
+          ],
+          "debt_ratio": [
+            12.938,
+            13.5395,
+            11.2088,
+            12.2795,
+            11.5019
+          ],
+          "operating_cashflow_per_share": [
+            0.3004,
+            0.769,
+            1.0764,
+            1.1522,
+            0.5045
+          ],
+          "eps": [
+            0.1884,
+            0.4917,
+            1.0872,
+            1.0269,
+            1.0874
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601966",
+      "name": "玲珑轮胎",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.862, 1.106, 1.453] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            4.81,
+            1.52,
+            6.65,
+            8.08,
+            5.93
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            4.2443,
+            1.7158,
+            6.896,
+            7.9429,
+            5.5545
+          ],
+          "debt_ratio": [
+            51.9954,
+            48.5101,
+            51.7406,
+            53.9414,
+            51.2226
+          ],
+          "operating_cashflow_per_share": [
+            0.3571,
+            0.099,
+            0.8134,
+            1.3236,
+            1.3589
+          ],
+          "eps": [
+            0.5747,
+            0.1976,
+            0.9437,
+            1.1972,
+            0.9353
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [2.222, 2.46, 2.082] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            10.56,
+            10.16,
+            11.68,
+            7.96,
+            7.84
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            22.5355,
+            22.8976,
+            25.8956,
+            21.4218,
+            21.8952
+          ],
+          "debt_ratio": [
+            69.4161,
+            68.1741,
+            69.8113,
+            68.265,
+            69.0061
+          ],
+          "operating_cashflow_per_share": [
+            2.0321,
+            2.4759,
+            2.2838,
+            2.1564,
+            1.8188
+          ],
+          "eps": [
+            0.8021,
+            0.8654,
+            1.0279,
+            0.8766,
+            0.8737
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601988",
+      "name": "中国银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            9.37,
+            8.82,
+            8.45,
+            7.93
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            91.2038,
+            91.1199,
+            91.4998,
+            91.5777,
+            91.6364
+          ],
+          "operating_cashflow_per_share": [
+            2.8644,
+            -0.0385,
+            2.7734,
+            1.8716,
+            2.5202
+          ],
+          "eps": [
+            0.7722,
+            0.8068,
+            0.8369,
+            0.8585,
+            0.8005
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601990",
+      "name": "南京证券",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            5.94,
+            3.91,
+            3.94,
+            5.6,
+            4.68
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            67.5248,
+            67.3826,
+            70.0562,
+            73.8802,
+            74.3596
+          ],
+          "operating_cashflow_per_share": [
+            -0.7145,
+            0.3279,
+            -0.7107,
+            0.8114,
+            -0.7543
+          ],
+          "eps": [
+            0.2674,
+            0.1763,
+            0.1853,
+            0.2737,
+            0.246
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601991",
+      "name": "大唐发电",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "leverage_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Leverage above 70%: industry-specific balance-sheet review needed",
+        "Operating cash flow per share / EPS: [7.058, 3.809, 3.775] (not a full accrual analysis)"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            -14.91,
+            -0.66,
+            1.85,
+            5.89,
+            9.19
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            -11.5032,
+            -0.7459,
+            2.4549,
+            5.5541,
+            8.2661
+          ],
+          "debt_ratio": [
+            74.2651,
+            74.9841,
+            70.8993,
+            71.022,
+            70.1454
+          ],
+          "operating_cashflow_per_share": [
+            0.4455,
+            1.1057,
+            1.1463,
+            1.4115,
+            2.0444
+          ],
+          "eps": [
+            -0.6428,
+            -0.0471,
+            0.1624,
+            0.3706,
+            0.5416
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601995",
+      "name": "中金公司",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            12.77,
+            7.66,
+            5.89,
+            4.94,
+            8.02
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            86.9604,
+            84.667,
+            83.1978,
+            82.8636,
+            84.1103
+          ],
+          "operating_cashflow_per_share": [
+            6.6186,
+            10.3459,
+            -2.1926,
+            8.6745,
+            14.724
+          ],
+          "eps": [
+            2.2394,
+            1.5733,
+            1.2768,
+            1.1755,
+            2.0302
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601997",
+      "name": "贵阳银行",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            11.3,
+            9.37,
+            7.98,
+            7.81
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            91.1186,
+            90.9206,
+            90.7664,
+            90.2164,
+            90.3736
+          ],
+          "operating_cashflow_per_share": [
+            -3.8603,
+            -1.2403,
+            -0.156,
+            -0.7164,
+            2.5902
+          ],
+          "eps": [
+            1.711,
+            1.7084,
+            1.541,
+            1.4535,
+            1.4604
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "601998",
+      "name": "中信银行",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            null,
+            9.33,
+            9.34,
+            8.69,
+            8.52
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "debt_ratio": [
+            92.01,
+            91.9763,
+            91.8843,
+            91.5306,
+            91.6333
+          ],
+          "operating_cashflow_per_share": [
+            -1.5407,
+            3.9862,
+            -0.0187,
+            -3.328,
+            7.9626
+          ],
+          "eps": [
+            1.1521,
+            1.2864,
+            1.39,
+            1.2771,
+            1.2847
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin",
+          "net_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603000",
+      "name": "人民网",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.405, 1.309, 1.845] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            4.95,
+            8.67,
+            8.89,
+            5.58,
+            5.47
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            8.6439,
+            16.8386,
+            15.8112,
+            10.6417,
+            11.3388
+          ],
+          "debt_ratio": [
+            29.5591,
+            28.5689,
+            26.4371,
+            26.2944,
+            23.9585
+          ],
+          "operating_cashflow_per_share": [
+            0.3812,
+            0.3388,
+            0.4249,
+            0.263,
+            0.3926
+          ],
+          "eps": [
+            0.1707,
+            0.3012,
+            0.3025,
+            0.2009,
+            0.2128
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603019",
+      "name": "中科曙光",
+      "indexes": "CSI300",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [1.869, 1.365, 0.609] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            9.14,
+            9.07,
+            9.84,
+            9.37,
+            9.79
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            11.2857,
+            12.4323,
+            13.084,
+            15.1618,
+            14.4194
+          ],
+          "debt_ratio": [
+            49.9409,
+            44.2298,
+            38.3821,
+            41.7578,
+            43.6713
+          ],
+          "operating_cashflow_per_share": [
+            -0.3385,
+            0.7684,
+            2.3981,
+            1.8602,
+            0.8976
+          ],
+          "eps": [
+            0.8639,
+            1.1046,
+            1.2831,
+            1.3624,
+            1.4747
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603049",
+      "name": "中策橡胶",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "priority_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.988, 0.804, 0.459] (not a full accrual analysis)",
+        "Consistent 3-year ROE >=10%; quality NOT yet verified"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            13.17,
+            10.38,
+            18.6,
+            21.67,
+            16.72
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            4.5284,
+            3.8411,
+            7.4828,
+            9.5792,
+            9.2256
+          ],
+          "debt_ratio": [
+            69.1461,
+            68.5835,
+            63.8146,
+            61.1816,
+            52.4863
+          ],
+          "operating_cashflow_per_share": [
+            0.6452,
+            1.3665,
+            4.2478,
+            3.8675,
+            2.1771
+          ],
+          "eps": [
+            2.2584,
+            1.9962,
+            4.299,
+            4.8097,
+            4.7428
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603077",
+      "name": "和邦生物",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "risk_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Non-positive ROE or net margin in one of three years",
+        "Manual examination required; not an automatic exclusion"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            21.22,
+            19.91,
+            6.56,
+            0.17,
+            -3.0
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            30.7216,
+            29.222,
+            14.491,
+            -0.8277,
+            -9.9153
+          ],
+          "debt_ratio": [
+            18.3295,
+            18.0039,
+            17.6187,
+            35.8965,
+            36.3373
+          ],
+          "operating_cashflow_per_share": [
+            0.362,
+            0.2994,
+            0.0091,
+            0.053,
+            0.1219
+          ],
+          "eps": [
+            0.3433,
+            0.4314,
+            0.1448,
+            -0.008,
+            -0.0807
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603083",
+      "name": "剑桥科技",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "risk_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Non-positive operating cash flow per share in one of three years",
+        "Operating cash flow per share / EPS: [1.505, 3.364, -2.114] (not a full accrual analysis)",
+        "Manual examination required; not an automatic exclusion"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            3.86,
+            8.9,
+            4.44,
+            7.21,
+            3.54
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            2.3038,
+            4.5295,
+            3.0764,
+            4.5739,
+            4.6149
+          ],
+          "debt_ratio": [
+            54.7124,
+            63.1929,
+            51.6892,
+            52.5713,
+            36.5119
+          ],
+          "operating_cashflow_per_share": [
+            -0.2456,
+            0.2201,
+            0.5332,
+            2.0966,
+            -1.3346
+          ],
+          "eps": [
+            0.2667,
+            0.6709,
+            0.3542,
+            0.6232,
+            0.6312
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603087",
+      "name": "甘李药业",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "ordinary_review",
+      "reasons": [
+        "Gross margin unavailable from this endpoint; NOT assumed zero",
+        "Operating cash flow per share / EPS: [0.322, 0.874, 0.686] (not a full accrual analysis)",
+        "Positive profitability/cash flow; ROE below preliminary priority threshold"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            14.29,
+            -4.59,
+            3.17,
+            5.56,
+            9.83
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            40.2197,
+            -25.6686,
+            13.0455,
+            20.1837,
+            28.2217
+          ],
+          "debt_ratio": [
+            6.3209,
+            9.6284,
+            8.3015,
+            8.2077,
+            7.9082
+          ],
+          "operating_cashflow_per_share": [
+            1.92,
+            0.5245,
+            0.1842,
+            0.8939,
+            1.313
+          ],
+          "eps": [
+            2.5871,
+            -0.777,
+            0.5726,
+            1.0226,
+            1.9146
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    },
+    {
+      "code": "603092",
+      "name": "德力佳",
+      "indexes": "CSI500",
+      "universe_date": "2026-11-08",
+      "status": "unrated",
+      "reasons": [
+        "Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"
+      ],
+      "financials": {
+        "source": "akshare.stock_financial_analysis_indicator",
+        "report_dates": [
+          "2021-12-31",
+          "2022-12-31",
+          "2023-12-31",
+          "2024-12-31",
+          "2025-12-31"
+        ],
+        "metrics": {
+          "roe": [
+            28.25,
+            32.74,
+            27.56,
+            18.57,
+            15.0
+          ],
+          "gross_margin": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "net_margin": [
+            18.5538,
+            17.3811,
+            14.2725,
+            14.3671,
+            15.2646
+          ],
+          "debt_ratio": [
+            61.1399,
+            65.8932,
+            64.5321,
+            56.8462,
+            48.5829
+          ],
+          "operating_cashflow_per_share": [
+            null,
+            null,
+            null,
+            2.2383,
+            1.8485
+          ],
+          "eps": [
+            null,
+            null,
+            null,
+            1.4827,
+            2.0684
+          ]
+        },
+        "source_columns": {
+          "roe": "净资产收益率(%)",
+          "gross_margin": "销售毛利率(%)",
+          "net_margin": "销售净利率(%)",
+          "debt_ratio": "资产负债率(%)",
+          "operating_cashflow_per_share": "每股经营性现金流(元)",
+          "eps": "摊薄每股收益(元)"
+        },
+        "missing_fields": [
+          "gross_margin"
+        ]
+      },
+      "error": null
+    }
+  ]
+}
