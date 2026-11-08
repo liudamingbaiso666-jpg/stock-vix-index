@@ -31,6 +31,16 @@ def study(df,values):
     # Avoid stale estimates, future-dated financial periods, zero or negative fair values.
     valid=(joined["conservative_value"]>0)&joined["asof_date"].le(joined["event_date"])&joined["age_days"].between(0,550)
     joined["margin"]=np.where(valid,1-joined["close"]/joined["conservative_value"],np.nan)
+    # Only independent first-crossing events, with a 20-session cooldown per threshold.
+    joined["event_threshold"]=np.nan
+    for threshold in (70,80,90):
+        flag=joined["panic_score"].ge(threshold).fillna(False)
+        crossings=np.flatnonzero((flag & ~flag.shift(1,fill_value=False)).to_numpy())
+        last=-10**9
+        for i in crossings:
+            if i-last>20:
+                joined.loc[i,"event_threshold"]=threshold if pd.isna(joined.loc[i,"event_threshold"]) else max(threshold,joined.loc[i,"event_threshold"])
+                last=i
     joined["margin_bucket"]=pd.cut(joined["margin"],bins=[-np.inf,0,.15,.30,np.inf],
                     labels=["negative","0_to_15","15_to_30","above_30"],right=False)
     joined["panic_bucket"]=pd.cut(joined["panic_score"],bins=[0,70,80,90,101],
@@ -44,9 +54,9 @@ def study(df,values):
             if np.isfinite(prices[i]) and prices[i]>0 and np.isfinite(future).all():
                 mae[i]=100*(np.min(future)/prices[i]-1)
         joined[f"mae_{h}d"]=mae
-    output={"coverage":{"trading_days":len(joined),"days_with_valid_valuation":int(joined["margin"].notna().sum())},
+    output={"coverage":{"trading_days":len(joined),"days_with_valid_valuation":int(joined["margin"].notna().sum()),"independent_event_days_with_valuation":int((joined["margin"].notna() & joined["event_threshold"].notna()).sum())},
             "groups":{}}
-    for (panic,margin),g in joined.dropna(subset=["panic_bucket","margin_bucket"]).groupby(["panic_bucket","margin_bucket"],observed=True):
+    for (panic,margin),g in joined.dropna(subset=["event_threshold","margin_bucket"]).groupby(["event_threshold","margin_bucket"],observed=True):
         group={}
         for h in HORIZONS:
             excess=g[f"excess_{h}d"]
@@ -68,7 +78,7 @@ def main():
             "limitations":["No valid historical valuations means NO investment inference.",
               "A single as-of valuation must not be carried past 550 days.",
               "Conservative value assumptions, financial statement release date and data vintage require audit.",
-              "Daily observations overlap and are NOT independent event samples.",
+              "Events have a 20-session cooldown per threshold, but 60-session outcome windows may overlap.",
               "Maximum adverse excursion is close-to-close, not intraday drawdown.",
               "Stock-specific valuation methods are not comparable until standardized.",
               "Historical adjusted prices can be revised and must match valuation adjustment basis."]}
@@ -96,7 +106,7 @@ def main():
                     output["stocks"][code]=study(df,v[v.code==code].copy())
                 except Exception as exc:
                     output["errors"][code]=f"{type(exc).__name__}: {exc}"
-            output["status"]="research_ready" if output["stocks"] and not output["errors"] else "incomplete"
+            output["status"]="research_ready" if output["stocks"] and not output["errors"] and any(x["coverage"]["independent_event_days_with_valuation"]>0 for x in output["stocks"].values()) else "incomplete"
         else:
             output["status"]="awaiting_historical_valuations"
     a.output.parent.mkdir(parents=True,exist_ok=True)
