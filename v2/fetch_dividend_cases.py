@@ -46,8 +46,7 @@ def collect(code: str, name: str) -> dict:
             entry["status"] = "empty"
             return entry
         entry["columns"] = [str(c) for c in frame.columns]
-        if "公告日期" not in entry["columns"]:
-            raise RuntimeError("Unexpected dividend response columns: " + repr(entry["columns"]))
+        # Archive source columns as-is; schema mapping is a separate validation step.
         entry["rows"] = [{str(k): normalize_cell(v) for k, v in row.items()}
                          for row in frame.to_dict(orient="records")]
         entry["status"] = "raw_collected"
