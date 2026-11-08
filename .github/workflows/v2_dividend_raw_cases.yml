@@ -1,0 +1,53 @@
+name: V2 Dividend Raw Case Calibration
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-dividend-raw-archive
+  cancel-in-progress: false
+
+jobs:
+  collect-raw:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Fetch three case dividend histories
+        id: fetch
+        continue-on-error: true
+        run: python v2/fetch_dividend_cases.py
+      - name: Commit raw source evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if test -d v2/dividends; then
+            git add -- v2/dividends/
+            if ! git diff --cached --quiet; then
+              git commit -m "V2.2: archive raw dividend case evidence"
+              git push origin HEAD:v2-stock-universe
+            fi
+          fi
+      - name: Upload raw evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-dividend-raw-cases
+          path: v2/dividends/**/*.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Require successful source acquisition
+        if: steps.fetch.outcome == 'failure'
+        run: exit 1
