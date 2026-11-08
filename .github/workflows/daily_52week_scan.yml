@@ -38,6 +38,12 @@ jobs:
             [ -f "$file" ] || continue
             python v2/build_watchlist.py "$file"
           done
+      - name: Compute experimental selling pressure score
+        run: |
+          for file in v2/reports/low52_*.csv; do
+            [ -f "$file" ] || continue
+            python v2/pressure_score.py "$file"
+          done
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
