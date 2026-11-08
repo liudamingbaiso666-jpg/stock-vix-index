@@ -90,9 +90,13 @@ def main():
         if i%50==0:print(f"{i}/{min(a.limit,len(universe))} scanned, {len(rows)} valid",flush=True)
         time.sleep(a.sleep)
     rows.sort(key=lambda x:x["distance_pct"])
-    day=pd.Timestamp(a.date).strftime("%Y-%m-%d")
+    observed_dates = [x["date"] for x in rows]
+    day = max(observed_dates) if observed_dates else pd.Timestamp(a.date).strftime("%Y-%m-%d")
+    stale = sum(x["date"] != day for x in rows)
     result={"as_of":day,"universe_total":len(universe),"attempted":min(a.limit,len(universe)),
             "valid":len(rows),"coverage_pct":round(100*len(rows)/len(universe),2),
+            "requested_end_date":pd.Timestamp(a.date).strftime("%Y-%m-%d"),
+            "latest_observed_session":day,"stale_stock_count":stale,
             "notes":["Candidate pool only; quality approval requires separate verification",
                      "Price-based labels are descriptive, not proof of panic or fund flows",
                      "52-week proximity does not establish intrinsic undervaluation"],
@@ -101,6 +105,8 @@ def main():
     (output/f"low52_{day}.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
     pd.DataFrame(rows).to_csv(output/f"low52_{day}.csv",index=False,encoding="utf-8-sig")
     print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"],"error_examples":errors[:5]},ensure_ascii=False),flush=True)
+    if stale:
+        print(f"WARNING: {stale} stocks do not match latest observed session {day}",flush=True)
     if not rows:
         raise SystemExit("FAILED: zero valid stock histories; inspect error_examples in logs and artifact")
 if __name__=="__main__":main()
