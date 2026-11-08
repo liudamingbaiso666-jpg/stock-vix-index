@@ -1,0 +1,25 @@
+{
+  "periods_compared": 27,
+  "provider_only_share_matches": 27,
+  "share_mismatches": 0,
+  "missing_share_snapshots": 0,
+  "daily_distinct_share_counts": [
+    22000000000.0,
+    22691000000.0,
+    22741859230.0,
+    23663781655.0,
+    24468217716.0
+  ],
+  "dividend_records": 28,
+  "dividend_chronology_issues": 0,
+  "original_announcements_verified": 0,
+  "valuation_approved": false,
+  "important": [
+    "Share capital reported in CNY is compared to share counts assuming RMB1 par value; confirm with original filings.",
+    "Share-capital data source reports 10k shares; unit is still unverified against issuer disclosures.",
+    "Provider historical share-capital report periods may be restated and are NOT automatically PIT.",
+    "Dividend amounts are interpreted as cash per 10 shares, NOT independently confirmed.",
+    "2022-2023 asset restructuring makes profit-based valuations non-comparable without normalization.",
+    "No PB or formal backtest approved."
+  ]
+}
