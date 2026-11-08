@@ -1,0 +1,17 @@
+{
+  "days": 1647,
+  "capital_change_events": 12,
+  "implemented_dividend_events": 26,
+  "days_with_market_cap_candidate": 1647,
+  "days_with_pe_candidate": 1325,
+  "days_with_trailing_dividend_candidate": 1644,
+  "approved_days": 0,
+  "critical": [
+    "Total-share provider unit 10k shares is inferred, not verified.",
+    "Using only disclosed non-periodic share change events may omit historical baseline and later events.",
+    "Cash dividend provider '派息' interpreted per ten shares, requires original notice validation.",
+    "Trailing paid dividend is not a forecast or declared-dividend yield.",
+    "Provider PIT financial vintages remain unverified; restructuring period not normalized.",
+    "PB unavailable without historical attributable equity; no backtest authorized."
+  ]
+}
