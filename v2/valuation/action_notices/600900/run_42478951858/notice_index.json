@@ -1,0 +1,152 @@
+[
+  {
+    "date": "2020-07-13",
+    "title": "600900:长江电力2019年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202007121391167889"
+  },
+  {
+    "date": "2021-07-09",
+    "title": "600900:长江电力2020年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202107081502542501"
+  },
+  {
+    "date": "2022-07-13",
+    "title": "600900:长江电力2021年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202207121576084391"
+  },
+  {
+    "date": "2023-07-17",
+    "title": "长江电力:长江电力2022年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202307161592322708",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202307161592322708_1.pdf?1689521632000.pdf",
+    "sha256": "b0629364f15a9f58fc53007156bc74a4b75f745ec0ea067b165353390b3fedca",
+    "bytes": 790495,
+    "error": ""
+  },
+  {
+    "date": "2023-04-27",
+    "title": "长江电力:长江电力关于发行股份及支付现金购买资产并募集配套资金暨关联交易发行结果暨股份变动公告",
+    "kind": "shares",
+    "art_code": "AN202304261585879431",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202304261585879431_1.pdf?1682530262000.pdf",
+    "sha256": "910f8bddb77fa5346af8ad647e16d1682989a86fe9c1583fda306f7ab7614beb",
+    "bytes": 707033,
+    "error": ""
+  },
+  {
+    "date": "2023-04-27",
+    "title": "长江电力:中国长江电力股份有限公司发行股份及支付现金购买资产并募集配套资金暨关联交易实施情况暨新增股份上市公告书",
+    "kind": "shares",
+    "art_code": "AN202304261585879418",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202304261585879418_1.pdf?1682530262000.pdf",
+    "sha256": "c73eea07cf1ca575d6ff6f38cd099c758853ba2b41e6d802735978a0832edef4",
+    "bytes": 821512,
+    "error": ""
+  },
+  {
+    "date": "2023-04-27",
+    "title": "长江电力:中国长江电力股份有限公司发行股份及支付现金购买资产并募集配套资金暨关联交易实施情况暨新增股份上市公告书(摘要)",
+    "kind": "shares",
+    "art_code": "AN202304261585879419",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202304261585879419_1.pdf?1682530262000.pdf",
+    "sha256": "264180c567730b2f0e23c2a8f2ffd6bf6e13a0bb92f3427f343279fdc5e256fa",
+    "bytes": 742117,
+    "error": ""
+  },
+  {
+    "date": "2023-02-09",
+    "title": "长江电力:长江电力关于发行股份及支付现金购买资产并募集配套资金暨关联交易之发行股份购买资产发行结果暨股本变动公告",
+    "kind": "shares",
+    "art_code": "AN202302081582901507",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202302081582901507_1.pdf?1675878374000.pdf",
+    "sha256": "650b811d72fcaae5db909d6ecf25217c3196a75b602b6f19c271d428682cf4d9",
+    "bytes": 552868,
+    "error": ""
+  },
+  {
+    "date": "2023-02-09",
+    "title": "长江电力:中国长江电力股份有限公司发行股份及支付现金购买资产并募集配套资金暨关联交易实施情况暨新增股份上市公告书(摘要)",
+    "kind": "shares",
+    "art_code": "AN202302081582901512",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202302081582901512_1.pdf?1675878415000.pdf",
+    "sha256": "e947359dc4b220f390082743ce11ac2c35e52dc42e0f2aed6a63602e554c596e",
+    "bytes": 676852,
+    "error": ""
+  },
+  {
+    "date": "2023-02-09",
+    "title": "长江电力:中国长江电力股份有限公司发行股份及支付现金购买资产并募集配套资金暨关联交易实施情况暨新增股份上市公告书",
+    "kind": "shares",
+    "art_code": "AN202302081582901511",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202302081582901511_1.pdf?1675878431000.pdf",
+    "sha256": "5fd64f95744a5aeed438b8d7ba24d9f587636867e7394ad8bb71b70c0ee98dac",
+    "bytes": 794154,
+    "error": ""
+  },
+  {
+    "date": "2024-07-11",
+    "title": "长江电力:长江电力2023年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202407101637759318",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202407101637759318_1.pdf?1720633826000.pdf",
+    "sha256": "27a25e95b9ee6bef52fe6bcaa216f6bde1ae13c66a8bf3d544edeef41d79a6bd",
+    "bytes": 739950,
+    "error": ""
+  },
+  {
+    "date": "2025-07-11",
+    "title": "长江电力:长江电力2024年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202507101706449257",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202507101706449257_1.pdf?1752173632000.pdf",
+    "sha256": "016ff3a428cd28446b6925b7129ac81ae5766ad100ec99893da4081fd4cfaa8b",
+    "bytes": 148474,
+    "error": ""
+  },
+  {
+    "date": "2025-01-16",
+    "title": "长江电力:长江电力2024年中期权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202501151641934301",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202501151641934301_1.pdf?1736957569000.pdf",
+    "sha256": "c5b89335ba6746c90658593a47cf949467fae569fd1cca92f9af7171a04be4f1",
+    "bytes": 741089,
+    "error": ""
+  },
+  {
+    "date": "2026-07-10",
+    "title": "长江电力:长江电力2025年年度权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202607091826845795",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202607091826845795_1.pdf?1783616648000.pdf",
+    "sha256": "e313badb273b2e50b3a3c24d71103829d36e84b386b1dba8a504a57cd6e9830f",
+    "bytes": 132408,
+    "error": ""
+  },
+  {
+    "date": "2026-02-05",
+    "title": "长江电力:长江电力2025年中期权益分派实施公告",
+    "kind": "dividend",
+    "art_code": "AN202602041819769289",
+    "status": "downloaded_unverified",
+    "pdf_url": "https://pdf.dfcfw.com/pdf/H2_AN202602041819769289_1.pdf?1770223123000.pdf",
+    "sha256": "31e82e6b3f2d33aa21b2b9e94426459ce2b7e3f9d260d9129925e1e31c1a06ba",
+    "bytes": 170149,
+    "error": ""
+  }
+]
