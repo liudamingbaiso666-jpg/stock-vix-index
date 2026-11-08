@@ -1,0 +1,50 @@
+name: V2.6 Collect 600900 Financials and Disclosures
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-6-600900-financial-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch source-dated reports and original financial tables
+        id: fetch
+        continue-on-error: true
+        run: |
+          python v2/valuation/collect_600900.py \
+            --output-dir v2/valuation/raw/600900/run_${{ github.run_id }}
+      - name: Archive collected evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/raw/600900/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.6: archive 600900 raw financial evidence"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: v2-6-600900-raw-financials
+          path: v2/valuation/raw/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
+      - name: Fail if no source data obtained
+        if: steps.fetch.outcome == 'failure'
+        run: exit 1
