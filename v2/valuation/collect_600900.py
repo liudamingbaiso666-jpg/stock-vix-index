@@ -164,6 +164,8 @@ def main():
     status="collected_partial"
     if len(annual)>=5 and len(tables)==3 and not f_errors:
         status="collected_unverified"
+    if not disclosures:
+        status="missing_disclosure_dates"
     if not disclosures and not tables:
         status="collection_failed"
     manifest={"version":"v2_6_600900_collection_v1","status":status,"stock":CODE,
@@ -181,8 +183,8 @@ def main():
                            "API failures or partial coverage must not be silently filled."]}
     (args.output_dir/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(manifest,ensure_ascii=False))
-    if status=="collection_failed":
-        raise RuntimeError("No financial or disclosure data obtained")
+    if not disclosures:
+        raise RuntimeError("Disclosure date collection incomplete: zero dated announcements; see manifest.json")
 
 
 if __name__=="__main__":
