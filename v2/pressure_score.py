@@ -34,7 +34,7 @@ def compute(path):
     data=data.sort_values(["pressure_score","code"],ascending=[False,True])
     out=Path(path).parent
     columns=["code","name","date","close","distance_pct","ret_5d_pct","ret_20d_pct",
-             "volume_ratio_20d","quality_status","pressure_score","score_version"]
+             "volume_ratio_20d","quality_status","exhaustion_watch","repair_score","repair_stage","selloff_context","pressure_score","score_version"]
     columns=[c for c in columns if c in data]
     data[columns].to_csv(out/f"pressure_{session}.csv",index=False,encoding="utf-8-sig")
     audit={"session":session,"input_rows":len(df),"valid_aligned":len(data),
