@@ -1,0 +1,36 @@
+name: V2.6 600900 Minimal Quarterly PIT Candidates
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Build minimal quarterly candidate dataset
+        run: |
+          python v2/valuation/build_600900_minimal_pit.py \
+            --audit-file v2/valuation/audit/600900/run_42476685023/historical_fundamental_audit.csv \
+            --output-dir v2/valuation/minimal_pit/600900/run_${{ github.run_id }}
+      - name: Commit output
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/minimal_pit/600900/
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.6 archive quarterly minimal PIT candidate dataset"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-minimal-pit
+          path: v2/valuation/minimal_pit/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
