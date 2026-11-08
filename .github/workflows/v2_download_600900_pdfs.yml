@@ -1,0 +1,43 @@
+name: V2.6 Download 600900 Original Reports
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  download:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install pandas requests
+      - name: Retrieve original dated report PDF candidates
+        id: retrieve
+        continue-on-error: true
+        run: |
+          python v2/valuation/download_600900_pdfs.py \
+            --mapping v2/valuation/matched/600900/run_42476541882/report_availability_candidates.csv \
+            --output-dir v2/valuation/pdf_evidence/600900/run_${{ github.run_id }}
+      - name: Archive provenance and PDFs
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/pdf_evidence/600900/
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.6: archive 600900 original PDF evidence candidates"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-pdf-evidence
+          path: v2/valuation/pdf_evidence/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
+      - name: Enforce nonzero original PDF retrieval
+        if: steps.retrieve.outcome == 'failure'
+        run: exit 1
