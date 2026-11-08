@@ -47,7 +47,7 @@ def collect(code: str, name: str) -> dict:
             return entry
         entry["columns"] = [str(c) for c in frame.columns]
         if "公告日期" not in entry["columns"]:
-            raise RuntimeError(f"Unexpected dividend response columns: {entry['columns\']}")
+            raise RuntimeError("Unexpected dividend response columns: " + repr(entry["columns"]))
         entry["rows"] = [{str(k): normalize_cell(v) for k, v in row.items()}
                          for row in frame.to_dict(orient="records")]
         entry["status"] = "raw_collected"
