@@ -1,0 +1,69 @@
+name: V2 Financial Quality Screening
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "cases = three test companies; full = one 50-stock batch"
+        required: true
+        type: choice
+        options:
+          - cases
+          - full
+        default: cases
+      batch:
+        description: "Batch number 0-15 for full mode"
+        required: true
+        default: '0'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-financial-quality
+  cancel-in-progress: false
+
+jobs:
+  quality-screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout V2 branch
+        uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run financial quality screening
+        id: screening
+        continue-on-error: true
+        run: python v2/quality_screen.py --mode "${{ inputs.mode }}" --batch "${{ inputs.batch }}" --batch-size 50
+      - name: Archive results and diagnostics to V2 branch
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if test -d v2/quality; then
+            git add -- v2/quality/
+            if ! git diff --cached --quiet; then
+              git commit -m "V2: archive quality-screen evidence"
+              git push origin HEAD:v2-stock-universe
+            fi
+          fi
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-quality-screen
+          path: v2/quality/**/*.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Mark incomplete case validation as failure
+        if: steps.screening.outcome == 'failure'
+        run: exit 1
