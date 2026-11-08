@@ -1,0 +1,15 @@
+{
+  "version": "v2_6_point_in_time_margin",
+  "status": "awaiting_historical_valuations",
+  "stocks": {},
+  "errors": {},
+  "limitations": [
+    "No valid historical valuations means NO investment inference.",
+    "A single as-of valuation must not be carried past 550 days.",
+    "Conservative value assumptions, financial statement release date and data vintage require audit.",
+    "Daily observations overlap and are NOT independent event samples.",
+    "Maximum adverse excursion is close-to-close, not intraday drawdown.",
+    "Stock-specific valuation methods are not comparable until standardized.",
+    "Historical adjusted prices can be revised and must match valuation adjustment basis."
+  ]
+}
