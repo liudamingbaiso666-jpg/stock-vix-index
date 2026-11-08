@@ -1,0 +1,42 @@
+name: V2.6 600900 Original Corporate Action Notices
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Find and archive share and dividend notice PDFs
+        id: collect
+        continue-on-error: true
+        run: |
+          python v2/valuation/collect_600900_action_notices.py \
+            --output-dir v2/valuation/action_notices/600900/run_${{ github.run_id }}
+      - name: Commit index and provenance
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/valuation/action_notices/600900/
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.6 archive original corporate action notice candidates"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v2-6-600900-original-action-notices
+          path: v2/valuation/action_notices/600900/run_${{ github.run_id }}/
+          if-no-files-found: warn
+      - name: Report collection failure
+        if: steps.collect.outcome == 'failure'
+        run: exit 1
