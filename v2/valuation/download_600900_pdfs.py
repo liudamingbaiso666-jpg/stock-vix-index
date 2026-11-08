@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 import pandas as pd
 import requests
 
-API="https://np-anotice-stock.eastmoney.com/api/content/ann"
+API="https://np-cnotice-stock.eastmoney.com/api/content/ann"
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--mapping",type=Path,required=True)
@@ -28,10 +28,16 @@ def main():
         try:
             response=session.get(API,params={"art_code":row["announcement_id"],"client_source":"web","page_index":1},timeout=25)
             response.raise_for_status()
+            if "json" not in response.headers.get("Content-Type","").lower() and not response.text.lstrip().startswith("{"):
+                raise ValueError("Detail API non-JSON response: HTTP "+str(response.status_code)+"; content_type="+response.headers.get("Content-Type","")+"; snippet="+response.text[:100])
             payload=response.json()
             data=payload.get("data") or {}
             # Eastmoney detail commonly returns attach_url; no URL is guessed.
             pdf=data.get("attach_url") or data.get("attachUrl") or ""
+            if not pdf:
+                # Known archive naming convention; confirm by PDF signature on download.
+                pdf="https://pdf.dfcfw.com/pdf/H2_"+row["announcement_id"]+"_1.pdf"
+                entry["source"]="eastmoney_archive_convention_fallback"
             if pdf.startswith("/"):
                 pdf="https://pdf.dfcfw.com"+pdf
             if pdf.startswith("http://") or pdf.startswith("https://"):
