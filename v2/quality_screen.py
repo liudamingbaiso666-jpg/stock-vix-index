@@ -8,7 +8,6 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
-import re
 import time
 from pathlib import Path
 
@@ -22,10 +21,12 @@ METRICS = {
     "gross_margin": ["销售毛利率", "毛利率"],
     "net_margin": ["销售净利率", "净利率"],
     "debt_ratio": ["资产负债率"],
-    "operating_cashflow": ["经营活动产生的现金流量净额", "每股经营性现金流", "每股经营现金流"],
+    "operating_cashflow_per_share": ["每股经营性现金流", "每股经营现金流"],
+    "eps": ["基本每股收益", "每股收益(元)", "每股收益"],
 }
-# Explicitly exploratory thresholds; no investment recommendations.
-THRESHOLDS = {"roe": 10, "debt_ratio": 70}
+# Heuristic triage, not an investment rating. Industry-specific review remains mandatory.
+MODEL_VERSION = "quality_v2_1"
+THRESHOLDS = {"roe": 10, "debt_ratio_review": 70}
 
 
 def latest_universe() -> Path:
@@ -99,25 +100,44 @@ def fetch_indicators(code: str) -> dict:
         col = metric_column(list(annual.columns), terms)
         result["source_columns"][key] = col
         result["metrics"][key] = [number(v) for v in annual[col]] if col else []
+    result["missing_fields"] = [k for k, values in result["metrics"].items() if not values or all(v is None for v in values)]
     return result
 
 
 def classify(data: dict) -> tuple[str, list[str]]:
+    """Transparent evidence triage; unknown data is not a negative signal."""
     m = data["metrics"]
-    roe = [v for v in m["roe"] if v is not None]
-    debt = [v for v in m["debt_ratio"] if v is not None]
+    dates = data["report_dates"]
+    if len(dates) < 3:
+        return "unrated", ["Fewer than three annual reports"]
+    # Compare the SAME last three fiscal years; never drop missing values and
+    # accidentally treat non-consecutive observations as consecutive.
+    keys = ("roe", "net_margin", "debt_ratio", "operating_cashflow_per_share")
+    if any(len(m.get(k, [])) != len(dates) or any(v is None for v in m[k][-3:]) for k in keys):
+        return "unrated", ["Incomplete ROE/net-margin/leverage/operating-cash-flow data for last three years"]
+    roe, net, debt, ocf = (m[k][-3:] for k in keys)
     reasons = []
-    if len(roe) < 3 or len(debt) < 3:
-        return "unrated", ["Insufficient comparable annual ROE/debt observations"]
-    if any(v < 0 for v in roe[-3:]):
-        reasons.append("Negative ROE in one of last three annual observations")
-    if debt[-1] > THRESHOLDS["debt_ratio"]:
-        reasons.append("Latest annual debt ratio above exploratory threshold")
-    if reasons:
-        return "C_review", reasons
-    if all(v >= THRESHOLDS["roe"] for v in roe[-3:]):
-        return "A_candidate", ["Three annual ROE observations >= 10%; qualitative review required"]
-    return "B_review", ["Profitability below exploratory A threshold or uneven"]
+    if "gross_margin" in data["missing_fields"]:
+        reasons.append("Gross margin unavailable from this endpoint; NOT assumed zero")
+    if "eps" in data["missing_fields"]:
+        reasons.append("EPS unavailable; cannot calculate cash-flow-to-earnings ratio")
+    if debt[-1] > THRESHOLDS["debt_ratio_review"]:
+        reasons.append("Leverage above 70%: industry-specific balance-sheet review needed")
+    if any(v <= 0 for v in ocf):
+        reasons.append("Non-positive operating cash flow per share in one of three years")
+    if any(v <= 0 for v in roe) or any(v <= 0 for v in net):
+        reasons.append("Non-positive ROE or net margin in one of three years")
+    eps = m.get("eps", [])
+    if len(eps) == len(dates) and all(v is not None and v > 0 for v in eps[-3:]):
+        ratios = [round(c / e, 3) for c, e in zip(ocf, eps[-3:])]
+        reasons.append(f"Operating cash flow per share / EPS: {ratios} (not a full accrual analysis)")
+    if any(v <= 0 for v in roe + net + ocf):
+        return "risk_review", reasons + ["Manual examination required; not an automatic exclusion"]
+    if debt[-1] > THRESHOLDS["debt_ratio_review"]:
+        return "leverage_review", reasons
+    if all(v >= THRESHOLDS["roe"] for v in roe):
+        return "priority_review", reasons + ["Consistent 3-year ROE >=10%; quality NOT yet verified"]
+    return "ordinary_review", reasons + ["Positive profitability/cash flow; ROE below preliminary priority threshold"]
 
 
 def main() -> None:
@@ -146,17 +166,18 @@ def main() -> None:
     folder = BASE / "quality" / today
     folder.mkdir(parents=True, exist_ok=True)
     suffix = "cases" if args.mode == "cases" else f"batch_{args.batch:02d}"
+    suffix = f"{suffix}_{MODEL_VERSION}"
     path = folder / f"{suffix}.json"
     # Re-running the same date does not overwrite historical evidence.
     if path.exists():
         print(f"Preserving existing {path}")
         return
-    payload = {"date": today, "universe_date": universe_date, "mode": args.mode,
+    payload = {"model_version": MODEL_VERSION, "data_limitations": ["Gross margin may be entirely missing from the upstream endpoint", "Thresholds are exploratory and not industry adjusted", "Annual financial data is not point-in-time validated; do not use this output for historical backtests"], "date": today, "universe_date": universe_date, "mode": args.mode,
                "batch": args.batch if args.mode == "full" else None,
                "count": len(rows), "records": rows}
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Saved {len(rows)} observations to {path}")
-    if args.mode == "cases" and any(row["error"] for row in rows):
+    if args.mode == "cases" and (any(row["error"] or row["status"] == "unrated" for row in rows)):
         raise RuntimeError("Case validation incomplete: saved diagnostics; review source compatibility")
 
 
