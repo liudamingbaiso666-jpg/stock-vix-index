@@ -1,0 +1,84 @@
+name: V2 Full 800-Stock Quality Scan
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-full-quality-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        batch: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Screen 50 companies
+        run: python v2/quality_screen.py --mode full --batch ${{ matrix.batch }} --batch-size 50
+      - name: Upload this batch only
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-batch-${{ matrix.batch }}
+          path: v2/quality/**/batch_*_quality_v2_1.json
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate:
+    needs: scan
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: quality-batch-*
+          path: v2_quality_batches
+          merge-multiple: false
+      - name: Aggregate and audit 800-stock results
+        id: aggregate
+        continue-on-error: true
+        run: |
+          mkdir -p v2/quality/aggregate
+          python v2/aggregate_quality.py --root v2_quality_batches --output v2/quality/aggregate/full_scan_run_${{ github.run_id }}.json
+      - name: Archive batch evidence and summary
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if test -d v2_quality_batches; then
+            find v2_quality_batches -type f -name 'batch_*_quality_v2_1.json' -exec cp -n '{}' v2/quality/aggregate/ \;
+          fi
+          git add v2/quality/aggregate/
+          if ! git diff --cached --quiet; then
+            git commit -m "V2: archive 800-stock financial quality scan and diagnostics"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - name: Publish summary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-full-quality-scan-summary
+          path: v2/quality/aggregate/full_scan_run_*.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Fail if incomplete
+        if: needs.scan.result != 'success' || steps.aggregate.outcome != 'success'
+        run: exit 1
