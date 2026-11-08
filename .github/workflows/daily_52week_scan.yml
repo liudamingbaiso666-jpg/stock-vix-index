@@ -23,6 +23,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install akshare pandas requests
+      - name: Validate exhaustion logic
+        run: python -m unittest discover -s v2 -p 'test_*.py' -v
       - name: Scan all candidates
         run: |
           if [ -n "${{ inputs.trade_date }}" ]; then
