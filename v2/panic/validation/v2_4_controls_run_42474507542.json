@@ -1,0 +1,17 @@
+{
+  "version": "panic_v2_4_controls",
+  "method": "Event first crossing; 20-day event cooldown; same-stock controls outside +/-20 trading days of events; downside controls require negative trailing 5-day return",
+  "stocks": {},
+  "errors": {
+    "600519": "ValueError: assignment destination is read-only",
+    "600900": "ValueError: assignment destination is read-only",
+    "601899": "ValueError: assignment destination is read-only"
+  },
+  "limitations": [
+    "Exploratory descriptive comparison, not statistical significance or causal proof",
+    "Control sample may be sparse when event windows cover most dates",
+    "No point-in-time financial quality or valuation safety margin yet",
+    "Adjusted historical prices can be revised",
+    "No execution constraints, transaction costs or survivorship adjustment"
+  ]
+}
