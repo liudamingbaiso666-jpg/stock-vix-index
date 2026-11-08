@@ -14,7 +14,7 @@ THRESHOLDS = (70, 80, 90)
 PERCENTILES = (10, 25, 50, 75, 90)
 
 
-def choose_events(df, threshold, cooldown=60):
+def choose_events(df, threshold, cooldown=20):
     signal = df["panic_score"].ge(threshold) & df["panic_score"].notna()
     starts = np.flatnonzero((signal & ~signal.shift(1, fill_value=False)).to_numpy())
     chosen = []
@@ -45,11 +45,11 @@ def evaluate(df):
         result = {"event_count": len(idx), "dates": df.index[idx].strftime("%Y-%m-%d").tolist(), "horizons": {}}
         for h in HORIZONS:
             # Control pool: same-stock historical observations with fully observed future,
-            # exclude +/-60 trading days around every event to reduce event contamination.
+            # exclude +/-20 trading days around every event to reduce event contamination.
             valid = df[f"future_{h}d"].notna() & df[f"excess_{h}d"].notna() & df["panic_score"].notna()
             mask = valid.to_numpy()
             for i in idx:
-                mask[max(0, i-60):min(len(df), i+61)] = False
+                mask[max(0, i-20):min(len(df), i+21)] = False
             pool = df.iloc[np.flatnonzero(mask)]
             event_rows = events.loc[events[f"future_{h}d"].notna() & events[f"excess_{h}d"].notna()]
             # Downside matched: control day with negative 5-day price return;
@@ -73,7 +73,7 @@ def main():
     parser.add_argument("--input-dir", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    output = {"version": "panic_v2_4_controls", "method": "Event first crossing; 60-day event cooldown; same-stock controls outside +/-60 trading days of events; downside controls require negative trailing 5-day return", "stocks": {}, "errors": {},
+    output = {"version": "panic_v2_4_controls", "method": "Event first crossing; 20-day event cooldown; same-stock controls outside +/-20 trading days of events; downside controls require negative trailing 5-day return", "stocks": {}, "errors": {},
               "limitations": ["Exploratory descriptive comparison, not statistical significance or causal proof",
                               "Control sample may be sparse when event windows cover most dates",
                               "No point-in-time financial quality or valuation safety margin yet",
