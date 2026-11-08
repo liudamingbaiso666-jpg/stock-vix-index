@@ -1,0 +1,51 @@
+name: V2.5 Matched Panic Signal Study
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-5-matched-panic
+  cancel-in-progress: false
+
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Compare panic events with matched controls
+        id: analysis
+        continue-on-error: true
+        run: |
+          python v2/matched_panic.py \
+            --input-dir v2/panic/results/run_42474213274_attempt_1 \
+            --output v2/panic/matched/v2_5_matched_run_${{ github.run_id }}.json
+      - name: Archive study
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v2/panic/matched/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "V2.5: archive matched-control study"
+            git push origin HEAD:v2-stock-universe
+          fi
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: v2-5-matched-study
+          path: v2/panic/matched/*.json
+          if-no-files-found: warn
+      - name: Fail if study incomplete
+        if: steps.analysis.outcome == 'failure'
+        run: exit 1
