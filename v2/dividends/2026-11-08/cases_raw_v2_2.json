@@ -1,0 +1,55 @@
+{
+  "model_version": "dividend_raw_v2_2",
+  "retrieved_at_utc": "2026-11-08T10:41:45.730552+00:00",
+  "normalization_status": "not_normalized",
+  "warnings": [
+    "Rows may include proposed/unimplemented dividends",
+    "Distribution fiscal year and payment/ex-dividend dates are different",
+    "Cash dividend unit and share adjustment must be verified against disclosures",
+    "Raw dividend records alone do not establish EPS, FCF or dividend yield"
+  ],
+  "records": [
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "source": "akshare.stock_history_dividend_detail",
+      "source_parameters": {
+        "symbol": "分红",
+        "stock": "601899",
+        "indicator": "分红"
+      },
+      "status": "error",
+      "columns": [],
+      "rows": [],
+      "error": "TypeError: stock_history_dividend_detail() got an unexpected keyword argument 'stock'"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "source": "akshare.stock_history_dividend_detail",
+      "source_parameters": {
+        "symbol": "分红",
+        "stock": "600519",
+        "indicator": "分红"
+      },
+      "status": "error",
+      "columns": [],
+      "rows": [],
+      "error": "TypeError: stock_history_dividend_detail() got an unexpected keyword argument 'stock'"
+    },
+    {
+      "code": "600900",
+      "name": "长江电力",
+      "source": "akshare.stock_history_dividend_detail",
+      "source_parameters": {
+        "symbol": "分红",
+        "stock": "600900",
+        "indicator": "分红"
+      },
+      "status": "error",
+      "columns": [],
+      "rows": [],
+      "error": "TypeError: stock_history_dividend_detail() got an unexpected keyword argument 'stock'"
+    }
+  ]
+}
