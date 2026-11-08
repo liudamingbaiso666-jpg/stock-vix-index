@@ -23,6 +23,8 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Check disclosure date parsing regression
+        run: python -m unittest discover -s v2/valuation -p 'test_collect_600900.py' -v
       - name: Fetch source-dated reports and original financial tables
         id: fetch
         continue-on-error: true
