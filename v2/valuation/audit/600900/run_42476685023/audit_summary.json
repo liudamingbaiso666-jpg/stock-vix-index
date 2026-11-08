@@ -1,0 +1,48 @@
+{
+  "version": "v2_6_600900_fundamental_audit_v1",
+  "periods": 27,
+  "provider_dates_agree_all_tables": 3,
+  "provider_dates_disagree_or_missing": [
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+  ],
+  "complete_cashflow_periods": 27,
+  "complete_debt_component_periods": 27,
+  "share_change_flags": [
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+  ],
+  "valuation_ready": false,
+  "limitations": [
+    "All financial amounts are original CNY, not millions.",
+    "Cash flows are cumulative year-to-date, not individual quarterly cash flows.",
+    "Net debt is a proxy; debt fields may omit leases or other liabilities.",
+    "Share capital in CNY must be verified as share count and adjusted for corporate actions.",
+    "2023 asset consolidation/major restructuring requires explicit normalization before cross-year valuation.",
+    "Provider and notice-index date agreement does not replace original PDF verification.",
+    "No fair value, margin of safety, or backtest has been calculated."
+  ]
+}
