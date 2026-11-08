@@ -1,0 +1,44 @@
+{
+  "total_days": 1647,
+  "anomaly_days": 0,
+  "anomaly_types": {},
+  "jump_events": 3,
+  "jump_event_types": {
+    "share_count_change": 3
+  },
+  "source_checks": {
+    "share_capital_provider_value_examples": [
+      2274185.923,
+      2366378.1655,
+      2446821.7716,
+      2446821.7716,
+      2446821.7716,
+      2446821.7716,
+      2446821.7716,
+      2446821.7716
+    ],
+    "candidate_share_unit_multiplier": 10000,
+    "share_unit_verified_against_original_filings": false,
+    "implemented_dividend_cash_per_10_shares_examples": [
+      7.9,
+      2.1,
+      7.33,
+      2.1,
+      8.2,
+      8.533,
+      8.153,
+      7.0
+    ],
+    "dividend_unit_verified_against_original_notices": false,
+    "dividend_event_rows_with_missing_ex_date": 0,
+    "dividend_duplicate_ex_dates": {}
+  },
+  "verified_days": 0,
+  "valuation_ready": false,
+  "next_steps": [
+    "Verify share units against original capital-change announcements.",
+    "Verify cash dividend per-ten-share units and ex-dates against official notices.",
+    "Audit point-in-time financial vintages and restructuring before PE backtesting.",
+    "Get attributable equity for PB; do not invent missing data."
+  ]
+}
