@@ -1,0 +1,23 @@
+name: V2 Dividend Model Tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-dividend-model:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pandas
+        run: pip install pandas
+      - name: Validate V2.2 dividend formulas and missing-data handling
+        run: python -m unittest discover -s v2/tests -p 'test_*.py' -v
