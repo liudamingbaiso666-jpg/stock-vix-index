@@ -21,9 +21,11 @@ OUTPUT = ROOT / "data"
 
 
 def normalize_code(value: object) -> str:
-    s = str(value).strip().split(".")[0]
+    s = str(value).strip()
     if s.endswith(".0"):
         s = s[:-2]
+    elif "." in s:
+        s = s.split(".")[0]
     if not s.isdigit() or len(s) > 6:
         raise ValueError(f"Invalid stock code: {value!r}")
     return s.zfill(6)
@@ -45,8 +47,21 @@ def fetch_constituents(index_code: str) -> pd.DataFrame:
         "code": raw[code_col].map(normalize_code),
         "name": raw[name_col].astype(str).str.strip() if name_col else "",
     })
-    if out.code.duplicated().any():
-        raise RuntimeError(f"Duplicate constituents in {index_code}")
+    duplicate_rows = out.loc[out.code.duplicated(keep=False)].sort_values("code")
+    if not duplicate_rows.empty:
+        print(f"[DIAGNOSTIC] {index_code}: {len(out)} raw rows, "
+              f"{out.code.nunique()} unique codes, "
+              f"{len(duplicate_rows)} rows involving duplicate codes", flush=True)
+        print(duplicate_rows.head(30).to_string(index=False), flush=True)
+        conflicts = duplicate_rows.groupby("code")["name"].nunique(dropna=False)
+        if (conflicts > 1).any():
+            raise RuntimeError(
+                f"Conflicting names for duplicate codes in {index_code}: "
+                f"{conflicts[conflicts > 1].index.tolist()[:20]}"
+            )
+        out = out.drop_duplicates(subset=["code"], keep="first").copy()
+        print(f"[DIAGNOSTIC] {index_code}: removed duplicate rows; "
+              f"{len(out)} unique codes remain", flush=True)
     if not 40 <= len(out) <= 600:
         raise RuntimeError(f"Implausible constituent count for {index_code}: {len(out)}")
     return out
