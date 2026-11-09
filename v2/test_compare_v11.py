@@ -11,12 +11,12 @@ class ComparisonTests(unittest.TestCase):
     def test_missing_values_and_ties_do_not_create_fake_quartiles(self):
         with tempfile.TemporaryDirectory() as folder:
             rows=[]
-            for i in range(48):
+            for i in range(320):
                 rows.append({"code":f"{i:06d}","date":"2026-11-06",
                              "pressure_score":float(i),"repair_score":float(i),
                              "selloff_context":True,
                              "natr_20":None if i == 0 else float(i % 8),
-                             "cmf_20":float(i % 6)/10,
+                             "cmf_20":float(i % 8)/10,
                              **{f"ret_{h}d_pct":float(i % 5 - 2) for h in (1,3,5,10,20)}})
             source=Path(folder)/"backtest.csv"
             target=Path(folder)/"comparison.csv"
