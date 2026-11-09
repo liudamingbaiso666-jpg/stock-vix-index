@@ -123,10 +123,11 @@ def main():
     p.add_argument("--date",default=None,help="YYYYMMDD; default uses latest available trading session")
     p.add_argument("--limit",type=int,default=800)
     p.add_argument("--sleep",type=float,default=0.15)
+    p.add_argument("--min-fresh-coverage",type=float,default=0.90,help="Minimum same-session fraction of attempted candidates for publication")
     p.add_argument("--stop-after-errors",type=int,default=30,help="Stop early when the first N consecutive stock requests fail")
     a=p.parse_args()
     if a.date is None:
-        a.date = (pd.Timestamp.now(tz="Asia/Shanghai") + pd.Timedelta(days=1)).strftime("%Y%m%d")
+        a.date = pd.Timestamp.now(tz="Asia/Shanghai").strftime("%Y%m%d")
     universe=json.loads((ROOT/"data"/"universe_2026-11-08.json").read_text(encoding="utf-8"))["records"]
     output=ROOT/"reports";output.mkdir(exist_ok=True)
     quality = load_quality_status()
@@ -155,10 +156,15 @@ def main():
     observed_dates = [x["date"] for x in rows]
     day = max(observed_dates) if observed_dates else pd.Timestamp(a.date).strftime("%Y-%m-%d")
     stale = sum(x["date"] != day for x in rows)
+    fresh_rows = [x for x in rows if x["date"] == day]
+    fresh_coverage = len(fresh_rows) / max(1, min(a.limit, len(universe)))
+    # Do not publish mixed-session cross-sectional P/R scores.
+    rows = fresh_rows
     result={"as_of":day,"universe_total":len(universe),"attempted":min(a.limit,len(universe)),
             "valid":len(rows),"coverage_pct":round(100*len(rows)/len(universe),2),
             "requested_end_date":pd.Timestamp(a.date).strftime("%Y-%m-%d"),
             "latest_observed_session":day,"stale_stock_count":stale,
+            "fresh_coverage_pct":round(100*fresh_coverage,2),
             "actual_attempts":len(rows)+len(errors),"stopped_early":stopped_early,
             "notes":["Candidate pool only; quality approval requires separate verification",
                      "Price-based labels are descriptive, not proof of panic or fund flows",
@@ -170,8 +176,8 @@ def main():
     print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"],"error_examples":errors[:5]},ensure_ascii=False),flush=True)
     if stale:
         print(f"WARNING: {stale} stocks do not match latest observed session {day}",flush=True)
-    if stopped_early or len(rows)<100:
+    if stopped_early or len(rows)<100 or fresh_coverage < a.min_fresh_coverage or day != pd.Timestamp(a.date).strftime("%Y-%m-%d"):
         raise SystemExit(f"FAILED: market data coverage insufficient for reliable cross-sectional scoring "
-                         f"(valid={len(rows)}, errors={len(errors)}, early_stop={stopped_early}). "
+                         f"(valid={len(rows)}, fresh_coverage={fresh_coverage:.1%}, errors={len(errors)}, early_stop={stopped_early}, session={day}). "
                          "Inspect low52 JSON and data source availability; no P score should be published.")
 if __name__=="__main__":main()
