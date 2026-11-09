@@ -14,6 +14,8 @@ def _validate(raw, provider):
         d = raw.copy()
         if "turnover_pct" not in d:
             d["turnover_pct"] = float("nan")
+    if "turnover_pct" not in d.columns:
+        d["turnover_pct"] = float("nan")
     if any(k not in d.columns for k in REQUIRED):
         raise ValueError(f"{provider}: missing OHLCV columns")
     d["date"] = pd.to_datetime(d["date"],errors="coerce")
