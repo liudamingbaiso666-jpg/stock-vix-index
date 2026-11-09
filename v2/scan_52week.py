@@ -16,6 +16,10 @@ def scan_one(code, name, end_date):
     start = (pd.Timestamp(end_date) - pd.Timedelta(days=520)).strftime("%Y%m%d")
     cache_dir = ROOT / "cache" / "ohlcv"
     cached = load_cache(cache_dir, code)
+    if cached is not None:
+        cached = cached.loc[cached["date"] <= pd.Timestamp(end_date)].copy()
+        if len(cached) < 253:
+            cached = None
     provider_file = cache_path(cache_dir, code).with_suffix(".provider")
     cached_provider = provider_file.read_text().strip() if cached is not None and provider_file.exists() else None
     if cached is not None and cached_provider in ("sina", "eastmoney"):
