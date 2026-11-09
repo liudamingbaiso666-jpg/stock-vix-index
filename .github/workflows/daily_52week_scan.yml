@@ -37,6 +37,26 @@ jobs:
           fi
         env:
           PYTHONUNBUFFERED: '1'
+      - name: Validate V1.1 research columns
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          files = sorted(Path("v2/reports").glob("low52_*.csv"))
+          if not files:
+              raise SystemExit("No scan CSV produced")
+          required = {"code", "date", "natr_20", "cmf_20", "obv_5d_change"}
+          for file in files:
+              df = pd.read_csv(file, dtype={"code": str})
+              missing = required - set(df.columns)
+              if missing:
+                  raise SystemExit(f"{file}: missing V1.1 fields {sorted(missing)}")
+              if df.empty:
+                  raise SystemExit(f"{file}: empty snapshot")
+              print(f"{file.name}: rows={len(df)}, NATR={df.natr_20.notna().sum()}, CMF={df.cmf_20.notna().sum()}, OBV={df.obv_5d_change.notna().sum()}")
+              if df[["natr_20", "cmf_20", "obv_5d_change"]].isna().all().any():
+                  raise SystemExit(f"{file}: V1.1 column entirely missing")
+          PY
       - name: Build daily research watchlist
         run: |
           for file in v2/reports/low52_*.csv; do
