@@ -1,0 +1,60 @@
+name: V1.1 research backtest (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install akshare pandas numpy requests
+      - name: Run regression tests
+        run: python -m unittest discover -s v2 -p 'test_*.py' -v
+      - name: Check archived snapshot count
+        id: check
+        shell: bash
+        run: |
+          count=$(find v2/history -maxdepth 1 -name 'low52_*.csv' 2>/dev/null | wc -l)
+          echo "snapshot_days=$count" >> "$GITHUB_OUTPUT"
+          echo "Archived snapshot files: $count"
+          if [ "$count" -lt 2 ]; then
+            echo "::warning::Fewer than 2 archived dates; cannot evaluate time variation"
+          fi
+          if [ "$count" -eq 0 ]; then
+            echo "::error::No archived snapshots found. Verify daily workflow archive step first."
+            exit 1
+          fi
+      - name: Fetch independent calendar and adjusted closes
+        run: python v2/fetch_backtest_market_data.py --snapshots v2/history --output-dir v2/reports/backtest_data
+      - name: Evaluate P/R future returns
+        run: |
+          python v2/backtest_pr.py \
+            --snapshots v2/history \
+            --prices v2/reports/backtest_data/prices.csv \
+            --calendar v2/reports/backtest_data/calendar.csv \
+            --output v2/reports/pr_backtest.csv
+      - name: Compare V1.1 factors
+        run: |
+          python v2/compare_v11.py \
+            --backtest v2/reports/pr_backtest.csv \
+            --output v2/reports/v11_comparison.csv
+      - name: Upload diagnostic outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v11-backtest-diagnostics
+          path: |
+            v2/reports/pr_backtest.csv
+            v2/reports/pr_backtest.json
+            v2/reports/v11_comparison.csv
+            v2/reports/backtest_data/calendar.csv
+            v2/reports/backtest_data/errors.csv
+          if-no-files-found: warn
