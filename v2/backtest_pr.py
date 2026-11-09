@@ -20,7 +20,10 @@ def evaluate(snapshot_dir, prices_csv, output):
         p=pd.read_csv(pf,dtype={"code":str})
         if not {"code","date","pressure_score"}.issubset(p):continue
         d=d.merge(p[["code","date","pressure_score"]],on=["code","date"],validate="one_to_one")
-        snapshots.append(d[["code","date","repair_score","repair_stage","pressure_score"]])
+        optional=["selloff_context","natr_20","cmf_20","obv_5d_change"]
+        for col in optional:
+            if col not in d.columns: d[col]=pd.NA
+        snapshots.append(d[["code","date","repair_score","repair_stage","pressure_score",*optional]])
     if not snapshots:raise ValueError("No archived matching P/R daily snapshots")
     s=pd.concat(snapshots,ignore_index=True)
     if s.duplicated(["code","date"]).any():
