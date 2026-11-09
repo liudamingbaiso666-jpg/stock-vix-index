@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 import pandas as pd
-import akshare as ak
+from market_data_providers import fetch_daily
 from exhaustion_signals import exhaustion_features
 from repair_score import repair_features
 from experimental_indicators_v11 import experimental_indicators
@@ -13,11 +13,7 @@ from experimental_indicators_v11 import experimental_indicators
 ROOT = Path(__file__).resolve().parent
 def scan_one(code, name, end_date):
     start = (pd.Timestamp(end_date) - pd.Timedelta(days=520)).strftime("%Y%m%d")
-    raw = ak.stock_zh_a_hist(symbol=code, period="daily", start_date=start,
-                             end_date=end_date, adjust="qfq")
-    if raw is None or raw.empty:
-        raise ValueError("empty daily history")
-    d = raw.rename(columns={"日期":"date","开盘":"open","最高":"high","收盘":"close","最低":"low","成交量":"volume","换手率":"turnover_pct"})
+    d, provider = fetch_daily(code, start, end_date)
     d["date"] = pd.to_datetime(d["date"])
     for k in ("open","high","close","low","volume","turnover_pct"):
         d[k] = pd.to_numeric(d[k], errors="coerce")
@@ -71,6 +67,7 @@ def scan_one(code, name, end_date):
             "selloff_context":repair["selloff_context"],
             "drawdown_25d_pct":repair["drawdown_25d_pct"],
             "quality_status":"unverified",
+            "data_provider":provider,
             **experimental}
 
 def load_quality_status():
