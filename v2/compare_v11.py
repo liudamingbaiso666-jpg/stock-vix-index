@@ -50,6 +50,12 @@ def compare(input_csv, output_csv):
                              "n": len(v), "negative_pct": round(100 * (v < 0).mean(), 2),
                              **{f"p{p}": round(float(v.quantile(p/100)), 2)
                                 for p in (10,25,50,75,90)}})
+    if not rows:
+        raise ValueError(
+            "No statistically reportable V1.1 groups (at least 30 forward-return observations "
+            "per factor/quartile/horizon are required). Accumulate more sessions and verify "
+            "forward price coverage before interpreting results."
+        )
     out = Path(output_csv)
     out.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows, columns=["factor","quartile","horizon","n","negative_pct","p10","p25","p50","p75","p90"]).to_csv(
