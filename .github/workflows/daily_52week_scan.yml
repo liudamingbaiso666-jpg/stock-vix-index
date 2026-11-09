@@ -9,7 +9,10 @@ on:
   schedule:
     - cron: '45 7 * * 1-5'
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: daily-52week-scan
+  cancel-in-progress: false
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -52,6 +55,23 @@ jobs:
             [ -f "$file" ] || continue
             python v2/build_pr_dashboard.py "$file"
           done
+      - name: Archive daily P and R snapshots in repository
+        if: success()
+        run: |
+          mkdir -p v2/history
+          for file in v2/reports/low52_*.csv v2/reports/pressure_*.csv; do
+            [ -f "$file" ] || continue
+            cp "$file" v2/history/
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add v2/history/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Archive daily P/R research snapshot'
+            git push origin HEAD:v2-stock-universe
+          else
+            echo 'No new snapshots to archive'
+          fi
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
