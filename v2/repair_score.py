@@ -43,10 +43,17 @@ def repair_features(frame):
     weights={"stable_lows":25,"strong_closes":20,"improving_close":20,
              "decline_deceleration":20,"supported_up_day":15}
     raw_score=sum(weights[k] for k,v in flags.items() if v)
+    # Early left-side candidate requires proximity to 52-week low and limited recent rebound.
+    # Thresholds are provisional and require out-of-sample calibration.
+    low52=float(d.low.iloc[-252:].min())
+    distance52=float(x.close/low52-1)*100 if low52>0 else float("inf")
+    early_window=bool(distance52<=20 and ret5<=.08)
     # Outside a selloff context, report evidence but never promote to entry stage.
     score=int(raw_score)
     if not selloff_context:
         stage="非下跌修复情境"
+    elif not early_window:
+        stage="已脱离早期低位窗口"
     elif stable_lows and strong_closes and (improving_close or supported_up_day) and score>=65:
         stage="初步承接观察"
     elif score>=40:
@@ -54,5 +61,7 @@ def repair_features(frame):
     else:
         stage="抛压未见充分缓解"
     return {"repair_score":score,"repair_stage":stage,"repair_flags":flags,
-            "selloff_context":bool(selloff_context),"drawdown_25d_pct":round(drawdown*100,2),
+            "selloff_context":bool(selloff_context),"early_window":early_window,
+            "distance_52week_low_pct":round(distance52,2),
+            "drawdown_25d_pct":round(drawdown*100,2),
             "warning":"Uncalibrated daily-bar heuristic; not proof of buyer identity, bottom, or buy signal."}
