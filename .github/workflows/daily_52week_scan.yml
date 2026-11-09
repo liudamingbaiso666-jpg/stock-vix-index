@@ -6,6 +6,11 @@ on:
         description: 'Trading date YYYYMMDD (blank = today)'
         required: false
         type: string
+      scan_limit:
+        description: 'Candidate count (50 for diagnostics; 800 for production)'
+        required: false
+        default: '800'
+        type: string
   schedule:
     - cron: '45 7 * * 1-5'
 permissions:
@@ -28,15 +33,23 @@ jobs:
         run: pip install akshare pandas requests
       - name: Validate exhaustion logic
         run: python -m unittest discover -s v2 -p 'test_*.py' -v
+      - name: Restore historical OHLCV cache
+        uses: actions/cache/restore@v4
+        with:
+          path: v2/cache/ohlcv
+          key: ohlcv-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ohlcv-v1-
       - name: Scan all candidates
         run: |
           if [ -n "${{ inputs.trade_date }}" ]; then
-            python v2/scan_52week.py --date "${{ inputs.trade_date }}"
+            python v2/scan_52week.py --date "${{ inputs.trade_date }}" --limit "${SCAN_LIMIT}"
           else
-            python v2/scan_52week.py
+            python v2/scan_52week.py --limit "${SCAN_LIMIT}"
           fi
         env:
           PYTHONUNBUFFERED: '1'
+          SCAN_LIMIT: ${{ inputs.scan_limit || '800' }}
       - name: Validate V1.1 research columns
         run: |
           python - <<'PY'
@@ -119,6 +132,12 @@ jobs:
               raise SystemExit(f"Archive verification failed: missing remote {path}")
           print(f"Archive verified on remote: {path}")
           PY
+      - name: Save historical OHLCV cache even on scan failure
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: v2/cache/ohlcv
+          key: ohlcv-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
