@@ -64,6 +64,7 @@ def scan_one(code, name, end_date):
             "exhaustion_flags":json.dumps(ex["flags"],ensure_ascii=False),
             "repair_score":repair["repair_score"],
             "repair_stage":repair["repair_stage"],
+            "early_window":repair["early_window"],
             "repair_flags":json.dumps(repair["repair_flags"],ensure_ascii=False),
             "selloff_context":repair["selloff_context"],
             "drawdown_25d_pct":repair["drawdown_25d_pct"],
