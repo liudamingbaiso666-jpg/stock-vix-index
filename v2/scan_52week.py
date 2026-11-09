@@ -89,6 +89,7 @@ def main():
     p.add_argument("--date",default=None,help="YYYYMMDD; default uses latest available trading session")
     p.add_argument("--limit",type=int,default=800)
     p.add_argument("--sleep",type=float,default=0.15)
+    p.add_argument("--stop-after-errors",type=int,default=30,help="Stop early when the first N consecutive stock requests fail")
     a=p.parse_args()
     if a.date is None:
         a.date = (pd.Timestamp.now(tz="Asia/Shanghai") + pd.Timedelta(days=1)).strftime("%Y%m%d")
@@ -96,6 +97,8 @@ def main():
     output=ROOT/"reports";output.mkdir(exist_ok=True)
     quality = load_quality_status()
     rows=[];errors=[]
+    consecutive_errors=0
+    stopped_early=False
     for i,x in enumerate(universe[:a.limit],1):
         try:
             r=scan_one(x["code"],x["name"],a.date)
@@ -103,9 +106,16 @@ def main():
                 raise ValueError("future trading date returned")
             r['quality_status'] = quality.get(x['code'], 'unrated')
             rows.append(r)
+            consecutive_errors=0
         except Exception as e:
             errors.append({"code":x["code"],"error":str(e)[:160]})
+            consecutive_errors+=1
         if i%50==0:print(f"{i}/{min(a.limit,len(universe))} scanned, {len(rows)} valid",flush=True)
+        if consecutive_errors>=a.stop_after_errors:
+            stopped_early=True
+            print(f"ABORT: {consecutive_errors} consecutive failures; source may be rate-limited. "
+                  f"Stopping at {i} attempts to avoid repeated requests.",flush=True)
+            break
         time.sleep(a.sleep)
     rows.sort(key=lambda x:x["distance_pct"])
     observed_dates = [x["date"] for x in rows]
@@ -115,6 +125,7 @@ def main():
             "valid":len(rows),"coverage_pct":round(100*len(rows)/len(universe),2),
             "requested_end_date":pd.Timestamp(a.date).strftime("%Y-%m-%d"),
             "latest_observed_session":day,"stale_stock_count":stale,
+            "actual_attempts":len(rows)+len(errors),"stopped_early":stopped_early,
             "notes":["Candidate pool only; quality approval requires separate verification",
                      "Price-based labels are descriptive, not proof of panic or fund flows",
                      "52-week proximity does not establish intrinsic undervaluation"],
@@ -125,6 +136,8 @@ def main():
     print(json.dumps({"valid":len(rows),"errors":len(errors),"coverage_pct":result["coverage_pct"],"error_examples":errors[:5]},ensure_ascii=False),flush=True)
     if stale:
         print(f"WARNING: {stale} stocks do not match latest observed session {day}",flush=True)
-    if not rows:
-        raise SystemExit("FAILED: zero valid stock histories; inspect error_examples in logs and artifact")
+    if stopped_early or len(rows)<100:
+        raise SystemExit(f"FAILED: market data coverage insufficient for reliable cross-sectional scoring "
+                         f"(valid={len(rows)}, errors={len(errors)}, early_stop={stopped_early}). "
+                         "Inspect low52 JSON and data source availability; no P score should be published.")
 if __name__=="__main__":main()
