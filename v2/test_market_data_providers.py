@@ -20,6 +20,7 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(source,"sina")
         self.assertEqual(len(d),253)
         eastmoney.assert_not_called()
+        self.assertEqual(sina.call_args.kwargs["end_date"],"20260102")
 
     @patch("market_data_providers.ak.stock_zh_a_hist")
     @patch("market_data_providers.ak.stock_zh_a_daily")
