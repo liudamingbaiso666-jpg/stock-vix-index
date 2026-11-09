@@ -25,11 +25,22 @@ jobs:
           count=$(find v2/history -maxdepth 1 -name 'low52_*.csv' 2>/dev/null | wc -l)
           echo "snapshot_days=$count" >> "$GITHUB_OUTPUT"
           echo "Archived snapshot files: $count"
-          if [ "$count" -lt 2 ]; then
-            echo "::warning::Fewer than 2 archived dates; cannot evaluate time variation"
-          fi
           if [ "$count" -eq 0 ]; then
-            echo "::error::No archived snapshots found. Verify daily workflow archive step first."
+            echo "::error::No archived snapshots found. Run Daily 52-week low scanner first and verify its archive step."
+            exit 1
+          fi
+          if [ "$count" -lt 2 ]; then
+            echo "::warning::Only $count archived date(s): insufficient for time-series validation; preliminary diagnostics only"
+          fi
+          matched=0
+          for f in v2/history/low52_*.csv; do
+            [ -f "$f" ] || continue
+            p="v2/history/pressure_${f##*low52_}"
+            if [ -f "$p" ]; then matched=$((matched + 1)); fi
+          done
+          echo "Matched P/R archive pairs: $matched"
+          if [ "$matched" -eq 0 ]; then
+            echo "::error::No matched low52 and pressure snapshots. Verify daily archive step."
             exit 1
           fi
       - name: Fetch independent calendar and adjusted closes
