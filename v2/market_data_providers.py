@@ -47,7 +47,7 @@ def fetch_daily(code, start_date, end_date, preferred="sina", min_sessions=253, 
                 if prefix=="bj":
                     raise ValueError("Sina fallback not supported for Beijing tickers")
                 raw=ak.stock_zh_a_daily(symbol=prefix+str(code),
-                      start_date=start_date,end_date=end_date,adjust="qfq")
+                      start_date=start_date,end_date=(pd.Timestamp(end_date) + pd.Timedelta(days=1)).strftime("%Y%m%d"),adjust="qfq")
             else:
                 raw=ak.stock_zh_a_hist(symbol=str(code),period="daily",
                       start_date=start_date,end_date=end_date,adjust="qfq")
