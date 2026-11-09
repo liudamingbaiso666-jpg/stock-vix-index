@@ -6,6 +6,7 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from market_data_providers import fetch_daily
+from ohlcv_cache import load_cache, store_cache, combine_cached_and_new, cache_path
 from exhaustion_signals import exhaustion_features
 from repair_score import repair_features
 from experimental_indicators_v11 import experimental_indicators
@@ -13,7 +14,36 @@ from experimental_indicators_v11 import experimental_indicators
 ROOT = Path(__file__).resolve().parent
 def scan_one(code, name, end_date):
     start = (pd.Timestamp(end_date) - pd.Timedelta(days=520)).strftime("%Y%m%d")
-    d, provider = fetch_daily(code, start, end_date)
+    cache_dir = ROOT / "cache" / "ohlcv"
+    cached = load_cache(cache_dir, code)
+    provider_file = cache_path(cache_dir, code).with_suffix(".provider")
+    cached_provider = provider_file.read_text().strip() if cached is not None and provider_file.exists() else None
+    if cached is not None and cached_provider in ("sina", "eastmoney"):
+        last = cached["date"].max()
+        if last >= pd.Timestamp(end_date):
+            d, provider = cached.copy(), cached_provider
+        else:
+            # Re-fetch a small overlap to detect historical qfq revisions.
+            overlap_start = cached.iloc[-6]["date"].strftime("%Y%m%d")
+            try:
+                new, source = fetch_daily(code, overlap_start, end_date,
+                    preferred=cached_provider, min_sessions=1, allow_fallback=False)
+                overlap = cached.merge(new, on="date", suffixes=("_old", "_new"))
+                if overlap.empty or any(
+                    ((overlap[f"{col}_old"] - overlap[f"{col}_new"]).abs() >
+                     0.001 * overlap[f"{col}_old"].abs().clip(lower=1)).any()
+                    for col in ("open", "high", "low", "close")
+                ):
+                    raise ValueError("qfq adjustment revision or missing overlap")
+                d = combine_cached_and_new(cached, new)
+                provider = source
+            except Exception:
+                # Never merge adjusted histories from different sources.
+                d, provider = fetch_daily(code, start, end_date)
+    else:
+        d, provider = fetch_daily(code, start, end_date)
+    store_cache(cache_dir, code, d)
+    provider_file.write_text(provider, encoding="utf-8")
     d["date"] = pd.to_datetime(d["date"])
     for k in ("open","high","close","low","volume","turnover_pct"):
         d[k] = pd.to_numeric(d[k], errors="coerce")
