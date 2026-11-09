@@ -9,7 +9,7 @@ import pandas as pd
 
 HORIZONS=(1,3,5,10,20)
 
-def evaluate(snapshot_dir, prices_csv, output):
+def evaluate(snapshot_dir, prices_csv, output, calendar_csv=None):
     snapshots=[]
     for f in sorted(Path(snapshot_dir).glob("low52_*.csv")):
         d=pd.read_csv(f,dtype={"code":str})
@@ -34,7 +34,19 @@ def evaluate(snapshot_dir, prices_csv, output):
     p["close"]=pd.to_numeric(p.close,errors="coerce")
     p=p.dropna(subset=["date","close"]).sort_values(["code","date"])
     if p.duplicated(["code","date"]).any():raise ValueError("Duplicate stock/date prices")
-    p["ix"]=p.groupby("code").cumcount()
+    # A sparse archive must not silently turn row offsets into trading-day horizons.
+    # Require an independent trading-session calendar for forward-return interpretation.
+    if calendar_csv is None:
+        raise ValueError("Trading-session calendar required (--calendar). Sparse snapshots are not sufficient.")
+    calendar = pd.read_csv(calendar_csv)
+    if "date" not in calendar:
+        raise ValueError("Calendar requires date column")
+    sessions = pd.DatetimeIndex(pd.to_datetime(calendar["date"], errors="raise").drop_duplicates().sort_values())
+    if len(sessions) < max(HORIZONS) + 1:
+        raise ValueError("Calendar too short for 20-session horizon")
+    if not p["date"].isin(sessions).all():
+        raise ValueError("Price observations outside trading calendar")
+    p["ix"]=p["date"].map(pd.Series(range(len(sessions)), index=sessions))
     s["date"]=pd.to_datetime(s.date)
     out=s.merge(p[["code","date","ix","close"]].rename(columns={"close":"entry_close"}),
                 on=["code","date"],validate="one_to_one")
@@ -69,5 +81,6 @@ if __name__=="__main__":
     a.add_argument("--snapshots",required=True)
     a.add_argument("--prices",required=True)
     a.add_argument("--output",required=True)
+    a.add_argument("--calendar",required=True,help="Independent CSV with date column of actual A-share sessions")
     x=a.parse_args()
-    evaluate(x.snapshots,x.prices,x.output)
+    evaluate(x.snapshots,x.prices,x.output,x.calendar)
