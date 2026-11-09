@@ -8,6 +8,7 @@ import pandas as pd
 import akshare as ak
 from exhaustion_signals import exhaustion_features
 from repair_score import repair_features
+from experimental_indicators_v11 import experimental_indicators
 
 ROOT = Path(__file__).resolve().parent
 def scan_one(code, name, end_date):
@@ -50,6 +51,7 @@ def scan_one(code, name, end_date):
     distance=(close/low52-1)*100
     ex=exhaustion_features(d)
     repair=repair_features(d)
+    experimental=experimental_indicators(d)
     return {"code":code,"name":name,"date":latest["date"].strftime("%Y-%m-%d"),
             "close":close,"low52":round(low52,3),"distance_pct":round(distance,2),
             "ret_5d_pct":r5,"ret_20d_pct":r20,"ret_60d_pct":r60,
@@ -68,7 +70,8 @@ def scan_one(code, name, end_date):
             "repair_flags":json.dumps(repair["repair_flags"],ensure_ascii=False),
             "selloff_context":repair["selloff_context"],
             "drawdown_25d_pct":repair["drawdown_25d_pct"],
-            "quality_status":"unverified"}
+            "quality_status":"unverified",
+            **experimental}
 
 def load_quality_status():
     statuses = {}
