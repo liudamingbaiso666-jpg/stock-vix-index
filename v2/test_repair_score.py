@@ -20,6 +20,14 @@ class RepairScoreTests(unittest.TestCase):
     def test_no_selloff_not_promoted(self):
         r=repair_features(self.data(False))
         self.assertEqual(r["repair_stage"],"非下跌修复情境")
+    def test_rebound_far_from_low_not_early_support(self):
+        d=self.data(True)
+        d.loc[d.index[-1],"close"]=110.0
+        d.loc[d.index[-1],"high"]=111.0
+        d.loc[d.index[-1],"low"]=109.0
+        r=repair_features(d)
+        self.assertFalse(r["early_window"])
+        self.assertNotEqual(r["repair_stage"],"初步承接观察")
     def test_short_data(self):
         with self.assertRaises(ValueError): repair_features(self.data(True).iloc[:10])
     def test_missing_column(self):
