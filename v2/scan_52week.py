@@ -41,9 +41,12 @@ def scan_one(code, name, end_date):
                     raise ValueError("qfq adjustment revision or missing overlap")
                 d = combine_cached_and_new(cached, new)
                 provider = source
-            except Exception:
-                # Never merge adjusted histories from different sources.
+            except ValueError:
+                # Changed adjustments require a complete provider-consistent refresh.
                 d, provider = fetch_daily(code, start, end_date)
+            except Exception as exc:
+                # A transient incremental outage must not trigger 800 full downloads.
+                raise RuntimeError(f"incremental update failed for {code}: {exc}") from exc
     else:
         d, provider = fetch_daily(code, start, end_date)
     store_cache(cache_dir, code, d)
