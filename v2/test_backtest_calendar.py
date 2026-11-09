@@ -33,7 +33,7 @@ class CalendarSafetyTests(unittest.TestCase):
             evaluate(snapshots,root/"prices.csv",root/"output.csv",root/"calendar.csv")
             output=pd.read_csv(root/"output.csv")
             self.assertTrue(pd.isna(output.loc[0,"ret_1d_pct"]))
-            self.assertAlmostEqual(float(output.loc[0,"ret_2d_pct"]),10.0) if "ret_2d_pct" in output else None
+            self.assertTrue(pd.isna(output.loc[0,"ret_3d_pct"]))
 
 if __name__=="__main__":
     unittest.main()
