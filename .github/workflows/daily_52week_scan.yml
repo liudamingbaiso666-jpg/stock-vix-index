@@ -85,13 +85,40 @@ jobs:
           done
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add v2/history/
+          git add -f v2/history/low52_*.csv v2/history/pressure_*.csv
           if ! git diff --cached --quiet; then
             git commit -m 'Archive daily P/R research snapshot'
-            git push origin HEAD:v2-stock-universe
+            for attempt in 1 2 3; do
+              if git push origin HEAD:v2-stock-universe; then
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "::error::Unable to push daily history after three attempts"
+                exit 1
+              fi
+              echo "Push conflicted; retrying after rebase"
+              git fetch origin v2-stock-universe
+              git rebase origin/v2-stock-universe
+            done
           else
             echo 'No new snapshots to archive'
           fi
+          git fetch origin v2-stock-universe
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          files=sorted(Path("v2/history").glob("low52_*.csv"))
+          if not files:
+              raise SystemExit("Archive verification failed: no low52 snapshots")
+          recent=files[-1]
+          path=recent.as_posix()
+          remote=subprocess.run(
+              ["git","cat-file","-e",f"origin/v2-stock-universe:{path}"],
+              capture_output=True, text=True)
+          if remote.returncode != 0:
+              raise SystemExit(f"Archive verification failed: missing remote {path}")
+          print(f"Archive verified on remote: {path}")
+          PY
       - name: Upload results even on partial failure
         if: always()
         uses: actions/upload-artifact@v4
