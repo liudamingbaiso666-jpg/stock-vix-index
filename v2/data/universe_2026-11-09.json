@@ -1,0 +1,5623 @@
+{
+  "as_of": "2026-11-09",
+  "fetched_at_utc": "2026-11-09T03:00:42.365649+00:00",
+  "source": "AKShare index_stock_cons_csindex",
+  "index_codes": {
+    "CSI300": "000300",
+    "CSIA50": "930050",
+    "CSI500": "000905"
+  },
+  "counts": {
+    "CSI300": 300,
+    "CSIA50": 50,
+    "CSI500": 500
+  },
+  "snapshot_dates": {
+    "CSI300": "2026-11-06",
+    "CSIA50": "2026-11-06",
+    "CSI500": "2026-11-06"
+  },
+  "unique_count": 800,
+  "records": [
+    {
+      "code": "000001",
+      "name": "平安银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000002",
+      "name": "万科A",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000009",
+      "name": "中国宝安",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000027",
+      "name": "深圳能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000032",
+      "name": "深桑达A",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000050",
+      "name": "深天马A",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000063",
+      "name": "中兴通讯",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000088",
+      "name": "盐田港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000155",
+      "name": "川能动力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000157",
+      "name": "中联重科",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000166",
+      "name": "申万宏源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000333",
+      "name": "美的集团",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000338",
+      "name": "潍柴动力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000400",
+      "name": "许继电气",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000408",
+      "name": "藏格矿业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000415",
+      "name": "渤海租赁",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000423",
+      "name": "东阿阿胶",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000425",
+      "name": "徐工机械",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000429",
+      "name": "粤高速A",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000513",
+      "name": "丽珠集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000519",
+      "name": "中兵红箭",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000528",
+      "name": "柳工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000537",
+      "name": "绿发电力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000538",
+      "name": "云南白药",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000539",
+      "name": "粤电力A",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000559",
+      "name": "万向钱潮",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000568",
+      "name": "泸州老窖",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000582",
+      "name": "北部湾港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000591",
+      "name": "太阳能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000596",
+      "name": "古井贡酒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000598",
+      "name": "兴蓉环境",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000617",
+      "name": "中油资本",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000623",
+      "name": "吉林敖东",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000625",
+      "name": "长安汽车",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000629",
+      "name": "钒钛股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000630",
+      "name": "铜陵有色",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000651",
+      "name": "格力电器",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000657",
+      "name": "中钨高新",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000661",
+      "name": "长春高新",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000683",
+      "name": "博源化工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000703",
+      "name": "恒逸石化",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000708",
+      "name": "中信特钢",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000709",
+      "name": "河钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000723",
+      "name": "美锦能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000728",
+      "name": "国元证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000729",
+      "name": "燕京啤酒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000733",
+      "name": "振华科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000737",
+      "name": "北方铜业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000738",
+      "name": "航发控制",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000739",
+      "name": "普洛药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000750",
+      "name": "国海证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000768",
+      "name": "中航西飞",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000776",
+      "name": "广发证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000783",
+      "name": "长江证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000785",
+      "name": "居然智家",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000786",
+      "name": "北新建材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000792",
+      "name": "盐湖股份",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000800",
+      "name": "一汽解放",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000807",
+      "name": "云铝股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000825",
+      "name": "太钢不锈",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000830",
+      "name": "鲁西化工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000831",
+      "name": "中国稀土",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000858",
+      "name": "五 粮 液",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000878",
+      "name": "云南铜业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000883",
+      "name": "湖北能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000887",
+      "name": "中鼎股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000893",
+      "name": "亚钾国际",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000895",
+      "name": "双汇发展",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000898",
+      "name": "鞍钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000921",
+      "name": "海信家电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000932",
+      "name": "华菱钢铁",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000937",
+      "name": "冀中能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000951",
+      "name": "中国重汽",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000959",
+      "name": "首钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000963",
+      "name": "华东医药",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000967",
+      "name": "盈峰环境",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000975",
+      "name": "山金国际",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000977",
+      "name": "浪潮信息",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000983",
+      "name": "山西焦煤",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000987",
+      "name": "越秀资本",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000988",
+      "name": "华工科技",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000997",
+      "name": "新 大 陆",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "000999",
+      "name": "华润三九",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001203",
+      "name": "大中矿业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001221",
+      "name": "悍高集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001280",
+      "name": "中国铀业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001286",
+      "name": "陕西能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001309",
+      "name": "德明利",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001386",
+      "name": "马可波罗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001389",
+      "name": "广合科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001391",
+      "name": "国货航",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001696",
+      "name": "宗申动力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001965",
+      "name": "招商公路",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "001979",
+      "name": "招商蛇口",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002001",
+      "name": "新和成",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002007",
+      "name": "华兰生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002008",
+      "name": "大族激光",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002025",
+      "name": "航天电器",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002027",
+      "name": "分众传媒",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002028",
+      "name": "思源电气",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002032",
+      "name": "苏泊尔",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002044",
+      "name": "美年健康",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002049",
+      "name": "紫光国微",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002050",
+      "name": "三花智控",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002056",
+      "name": "横店东磁",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002064",
+      "name": "华峰化学",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002065",
+      "name": "东华软件",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002074",
+      "name": "国轩高科",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002078",
+      "name": "太阳纸业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002085",
+      "name": "万丰奥威",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002120",
+      "name": "韵达股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002126",
+      "name": "银轮股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002130",
+      "name": "沃尔核材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002131",
+      "name": "利欧股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002138",
+      "name": "顺络电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002142",
+      "name": "宁波银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002152",
+      "name": "广电运通",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002153",
+      "name": "石基信息",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002157",
+      "name": "正邦科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002179",
+      "name": "中航光电",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002185",
+      "name": "华天科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002195",
+      "name": "岩山科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002202",
+      "name": "金风科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002203",
+      "name": "海亮股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002223",
+      "name": "鱼跃医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002230",
+      "name": "科大讯飞",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002236",
+      "name": "大华股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002241",
+      "name": "歌尔股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002244",
+      "name": "滨江集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002252",
+      "name": "上海莱士",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002261",
+      "name": "拓维信息",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002262",
+      "name": "恩华药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002265",
+      "name": "建设工业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002266",
+      "name": "浙富控股",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002271",
+      "name": "东方雨虹",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002273",
+      "name": "水晶光电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002281",
+      "name": "光迅科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002294",
+      "name": "信立泰",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002299",
+      "name": "圣农发展",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002304",
+      "name": "洋河股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002311",
+      "name": "海大集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002312",
+      "name": "川发龙蟒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002318",
+      "name": "久立特材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002335",
+      "name": "科华数据",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002340",
+      "name": "格林美",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002352",
+      "name": "顺丰控股",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002353",
+      "name": "杰瑞股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002371",
+      "name": "北方华创",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002384",
+      "name": "东山精密",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002402",
+      "name": "和而泰",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002407",
+      "name": "多氟多",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002409",
+      "name": "雅克科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002410",
+      "name": "广联达",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002414",
+      "name": "高德红外",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002415",
+      "name": "海康威视",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002422",
+      "name": "科伦药业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002423",
+      "name": "中粮资本",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002429",
+      "name": "兆驰股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002430",
+      "name": "杭氧股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002432",
+      "name": "九安医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002436",
+      "name": "兴森科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002444",
+      "name": "巨星科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002460",
+      "name": "赣锋锂业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002461",
+      "name": "珠江啤酒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002463",
+      "name": "沪电股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002465",
+      "name": "海格通信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002466",
+      "name": "天齐锂业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002472",
+      "name": "双环传动",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002475",
+      "name": "立讯精密",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002487",
+      "name": "大金重工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002493",
+      "name": "荣盛石化",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002500",
+      "name": "山西证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002508",
+      "name": "老板电器",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002517",
+      "name": "恺英网络",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002532",
+      "name": "天山铝业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002558",
+      "name": "巨人网络",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002568",
+      "name": "百润股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002583",
+      "name": "海能达",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002600",
+      "name": "领益智造",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002601",
+      "name": "龙佰集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002602",
+      "name": "世纪华通",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002603",
+      "name": "以岭药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002608",
+      "name": "江苏国信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002624",
+      "name": "完美世界",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002625",
+      "name": "光启技术",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002648",
+      "name": "卫星化学",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002670",
+      "name": "国盛证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002673",
+      "name": "西部证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002683",
+      "name": "广东宏大",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002709",
+      "name": "天赐材料",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002714",
+      "name": "牧原股份",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002736",
+      "name": "国信证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002738",
+      "name": "中矿资源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002739",
+      "name": "儒意电影",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002756",
+      "name": "永兴材料",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002773",
+      "name": "康弘药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002797",
+      "name": "第一创业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002812",
+      "name": "恩捷股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002821",
+      "name": "凯莱英",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002831",
+      "name": "裕同科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002837",
+      "name": "英维克",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002841",
+      "name": "视源股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002850",
+      "name": "科达利",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002851",
+      "name": "麦格米特",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002916",
+      "name": "深南电路",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002920",
+      "name": "德赛西威",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002926",
+      "name": "华西证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002938",
+      "name": "鹏鼎控股",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002939",
+      "name": "长城证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002945",
+      "name": "华林证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002966",
+      "name": "苏州银行",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "002984",
+      "name": "森麒麟",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "003021",
+      "name": "兆威机电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "003022",
+      "name": "联泓新科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "003031",
+      "name": "中瓷电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "003035",
+      "name": "南网能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "003816",
+      "name": "中国广核",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300001",
+      "name": "特锐德",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300002",
+      "name": "神州泰岳",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300003",
+      "name": "乐普医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300012",
+      "name": "华测检测",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300014",
+      "name": "亿纬锂能",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300015",
+      "name": "爱尔眼科",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300017",
+      "name": "网宿科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300024",
+      "name": "机器人",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300033",
+      "name": "同花顺",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300037",
+      "name": "新宙邦",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300054",
+      "name": "鼎龙股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300058",
+      "name": "蓝色光标",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300059",
+      "name": "东方财富",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300073",
+      "name": "当升科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300100",
+      "name": "双林股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300115",
+      "name": "长盈精密",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300122",
+      "name": "智飞生物",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300124",
+      "name": "汇川技术",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300136",
+      "name": "信维通信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300140",
+      "name": "节能环境",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300142",
+      "name": "沃森生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300144",
+      "name": "宋城演艺",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300146",
+      "name": "汤臣倍健",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300207",
+      "name": "欣旺达",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300223",
+      "name": "君正股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300251",
+      "name": "光线传媒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300274",
+      "name": "阳光电源",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300285",
+      "name": "国瓷材料",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300316",
+      "name": "晶盛机电",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300339",
+      "name": "润和软件",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300346",
+      "name": "南大光电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300373",
+      "name": "扬杰科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300383",
+      "name": "光环新网",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300390",
+      "name": "天华新能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300394",
+      "name": "天孚通信",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300395",
+      "name": "菲利华",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300408",
+      "name": "三环集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300413",
+      "name": "芒果超媒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300418",
+      "name": "昆仑万维",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300432",
+      "name": "富临精工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300433",
+      "name": "蓝思科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300442",
+      "name": "润泽科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300450",
+      "name": "先导智能",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300454",
+      "name": "深信服",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300458",
+      "name": "全志科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300474",
+      "name": "景嘉微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300475",
+      "name": "香农芯创",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300476",
+      "name": "胜宏科技",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300487",
+      "name": "蓝晓科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300496",
+      "name": "中科创达",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300498",
+      "name": "温氏股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300502",
+      "name": "新易盛",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300548",
+      "name": "长芯博创",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300558",
+      "name": "贝达药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300567",
+      "name": "精测电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300570",
+      "name": "太辰光",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300604",
+      "name": "长川科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300620",
+      "name": "光库科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300623",
+      "name": "捷捷微电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300627",
+      "name": "华测导航",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300628",
+      "name": "亿联网络",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300661",
+      "name": "圣邦股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300666",
+      "name": "江丰电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300676",
+      "name": "华大基因",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300677",
+      "name": "英科医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300679",
+      "name": "电连技术",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300699",
+      "name": "光威复材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300718",
+      "name": "长盛轴承",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300724",
+      "name": "捷佳伟创",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300735",
+      "name": "光弘科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300748",
+      "name": "金力永磁",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300751",
+      "name": "迈为股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300757",
+      "name": "罗博特科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300759",
+      "name": "康龙化成",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300760",
+      "name": "迈瑞医疗",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300763",
+      "name": "锦浪科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300803",
+      "name": "指南针",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300832",
+      "name": "新产业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300857",
+      "name": "协创数据",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300866",
+      "name": "安克创新",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300888",
+      "name": "稳健医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300896",
+      "name": "爱美客",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300919",
+      "name": "中伟新材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300953",
+      "name": "震裕科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300957",
+      "name": "贝泰妮",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300972",
+      "name": "万辰集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "300999",
+      "name": "金龙鱼",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301165",
+      "name": "锐捷网络",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301200",
+      "name": "大族数控",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301236",
+      "name": "软通动力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301269",
+      "name": "华大九天",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301297",
+      "name": "富乐德",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301301",
+      "name": "川宁生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301308",
+      "name": "江波龙",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301358",
+      "name": "湖南裕能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301377",
+      "name": "鼎泰高科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301498",
+      "name": "乖宝宠物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301526",
+      "name": "国际复材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301536",
+      "name": "星宸科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301606",
+      "name": "绿联科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "301611",
+      "name": "珂玛科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "302132",
+      "name": "中航成飞",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600000",
+      "name": "浦发银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600004",
+      "name": "白云机场",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600008",
+      "name": "首创环保",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600009",
+      "name": "上海机场",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600010",
+      "name": "包钢股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600011",
+      "name": "华能国际",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600015",
+      "name": "华夏银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600016",
+      "name": "民生银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600018",
+      "name": "上港集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600019",
+      "name": "宝钢股份",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600021",
+      "name": "上海电力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600023",
+      "name": "浙能电力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600025",
+      "name": "华能水电",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600026",
+      "name": "中远海能",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600027",
+      "name": "华电国际",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600028",
+      "name": "中国石化",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600029",
+      "name": "南方航空",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600030",
+      "name": "中信证券",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600031",
+      "name": "三一重工",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600032",
+      "name": "浙江新能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600038",
+      "name": "中直股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600039",
+      "name": "四川路桥",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600048",
+      "name": "保利发展",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600050",
+      "name": "中国联通",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600060",
+      "name": "海信视像",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600061",
+      "name": "国投资本",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600062",
+      "name": "华润双鹤",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600066",
+      "name": "宇通客车",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600085",
+      "name": "同仁堂",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600089",
+      "name": "特变电工",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600095",
+      "name": "湘财股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600098",
+      "name": "广州发展",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600100",
+      "name": "同方股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600104",
+      "name": "上汽集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600105",
+      "name": "永鼎股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600109",
+      "name": "国金证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600111",
+      "name": "北方稀土",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600115",
+      "name": "中国东航",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600118",
+      "name": "中国卫星",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600126",
+      "name": "杭钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600131",
+      "name": "国网信通",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600132",
+      "name": "重庆啤酒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600141",
+      "name": "兴发集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600143",
+      "name": "金发科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600150",
+      "name": "中国船舶",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600153",
+      "name": "建发股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600157",
+      "name": "永泰能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600160",
+      "name": "巨化股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600161",
+      "name": "天坛生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600166",
+      "name": "福田汽车",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600170",
+      "name": "上海建工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600171",
+      "name": "上海贝岭",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600176",
+      "name": "中国巨石",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600177",
+      "name": "雅戈尔",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600183",
+      "name": "生益科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600188",
+      "name": "兖矿能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600196",
+      "name": "复星医药",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600208",
+      "name": "衢州发展",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600219",
+      "name": "南山铝业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600221",
+      "name": "海航控股",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600233",
+      "name": "圆通速递",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600256",
+      "name": "广汇能源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600276",
+      "name": "恒瑞医药",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600282",
+      "name": "南钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600292",
+      "name": "电投水电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600295",
+      "name": "鄂尔多斯",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600298",
+      "name": "安琪酵母",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600299",
+      "name": "安迪苏",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600309",
+      "name": "万华化学",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600312",
+      "name": "平高电气",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600316",
+      "name": "洪都航空",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600329",
+      "name": "达仁堂",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600332",
+      "name": "白云山",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600339",
+      "name": "中油工程",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600346",
+      "name": "恒力石化",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600348",
+      "name": "华阳股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600350",
+      "name": "山东高速",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600352",
+      "name": "浙江龙盛",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600362",
+      "name": "江西铜业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600369",
+      "name": "西南证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600372",
+      "name": "中航机载",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600377",
+      "name": "宁沪高速",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600378",
+      "name": "昊华科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600380",
+      "name": "健康元",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600390",
+      "name": "五矿资本",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600398",
+      "name": "海澜之家",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600406",
+      "name": "国电南瑞",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600415",
+      "name": "小商品城",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600426",
+      "name": "华鲁恒升",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600435",
+      "name": "北方导航",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600436",
+      "name": "片仔癀",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600438",
+      "name": "通威股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600460",
+      "name": "士兰微",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600482",
+      "name": "中国动力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600483",
+      "name": "福能股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600486",
+      "name": "扬农化工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600489",
+      "name": "中金黄金",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600497",
+      "name": "驰宏锌锗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600498",
+      "name": "烽火通信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600499",
+      "name": "科达制造",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600511",
+      "name": "国药股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600515",
+      "name": "海南机场",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600516",
+      "name": "方大炭素",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600517",
+      "name": "国网英大",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600521",
+      "name": "华海药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600522",
+      "name": "中天科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600535",
+      "name": "天士力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600536",
+      "name": "中国软件",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600546",
+      "name": "山煤国际",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600547",
+      "name": "山东黄金",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600549",
+      "name": "厦门钨业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600562",
+      "name": "国睿科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600563",
+      "name": "法拉电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600566",
+      "name": "济川药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600570",
+      "name": "恒生电子",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600578",
+      "name": "京能电力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600582",
+      "name": "天地科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600583",
+      "name": "海油工程",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600584",
+      "name": "长电科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600585",
+      "name": "海螺水泥",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600588",
+      "name": "用友网络",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600595",
+      "name": "中孚实业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600598",
+      "name": "北大荒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600600",
+      "name": "青岛啤酒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600601",
+      "name": "方正科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600602",
+      "name": "云赛智联",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600606",
+      "name": "绿地控股",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600637",
+      "name": "东方明珠",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600642",
+      "name": "申能股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600655",
+      "name": "豫园股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600660",
+      "name": "福耀玻璃",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600663",
+      "name": "陆家嘴",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600674",
+      "name": "川投能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600685",
+      "name": "中船防务",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600688",
+      "name": "上海石化",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600690",
+      "name": "海尔智家",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600699",
+      "name": "均胜电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600704",
+      "name": "物产中大",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600707",
+      "name": "彩虹股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600711",
+      "name": "盛屯矿业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600737",
+      "name": "中粮糖业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600741",
+      "name": "华域汽车",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600754",
+      "name": "锦江酒店",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600760",
+      "name": "中航沈飞",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600763",
+      "name": "通策医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600764",
+      "name": "中国海防",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600765",
+      "name": "中航重机",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600795",
+      "name": "国电电力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600801",
+      "name": "华新建材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600803",
+      "name": "新奥股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600808",
+      "name": "马钢股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600809",
+      "name": "山西汾酒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600816",
+      "name": "建元信托",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600820",
+      "name": "隧道股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600845",
+      "name": "宝信软件",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600848",
+      "name": "上海临港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600862",
+      "name": "中航高科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600863",
+      "name": "华能蒙电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600871",
+      "name": "石化油服",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600873",
+      "name": "梅花生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600875",
+      "name": "东方电气",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600879",
+      "name": "航天电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600884",
+      "name": "杉杉股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600885",
+      "name": "宏发股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600886",
+      "name": "国投电力",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600887",
+      "name": "伊利股份",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600893",
+      "name": "航发动力",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600900",
+      "name": "长江电力",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600901",
+      "name": "江苏金租",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600905",
+      "name": "三峡能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600906",
+      "name": "财达证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600909",
+      "name": "华安证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600918",
+      "name": "中泰证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600919",
+      "name": "江苏银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600926",
+      "name": "杭州银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600927",
+      "name": "永安期货",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600930",
+      "name": "华电新能",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600938",
+      "name": "中国海油",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600941",
+      "name": "中国移动",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600958",
+      "name": "东方证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600967",
+      "name": "内蒙一机",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600968",
+      "name": "海油发展",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600970",
+      "name": "中材国际",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600977",
+      "name": "中国电影",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600985",
+      "name": "淮北矿业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600989",
+      "name": "宝丰能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600995",
+      "name": "南网储能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600998",
+      "name": "九州通",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "600999",
+      "name": "招商证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601000",
+      "name": "唐山港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601001",
+      "name": "晋控煤业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601006",
+      "name": "大秦铁路",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601009",
+      "name": "南京银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601012",
+      "name": "隆基绿能",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601016",
+      "name": "节能风电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601018",
+      "name": "宁波港",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601019",
+      "name": "山东出版",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601021",
+      "name": "春秋航空",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601058",
+      "name": "赛轮轮胎",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601066",
+      "name": "中信建投",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601077",
+      "name": "渝农商行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601098",
+      "name": "中南传媒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601099",
+      "name": "太平洋",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601100",
+      "name": "恒立液压",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601106",
+      "name": "中国一重",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601108",
+      "name": "财通证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601111",
+      "name": "中国国航",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601112",
+      "name": "振石股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601117",
+      "name": "中国化学",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601118",
+      "name": "海南橡胶",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601127",
+      "name": "赛力斯",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601128",
+      "name": "常熟银行",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601136",
+      "name": "首创证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601138",
+      "name": "工业富联",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601139",
+      "name": "深圳燃气",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601155",
+      "name": "新城控股",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601156",
+      "name": "东航物流",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601162",
+      "name": "天风证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601166",
+      "name": "兴业银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601169",
+      "name": "北京银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601179",
+      "name": "中国西电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601186",
+      "name": "中国铁建",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601211",
+      "name": "国泰海通",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601212",
+      "name": "白银有色",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601216",
+      "name": "君正集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601225",
+      "name": "陕西煤业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601228",
+      "name": "广州港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601229",
+      "name": "上海银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601233",
+      "name": "桐昆股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601236",
+      "name": "红塔证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601238",
+      "name": "广汽集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601288",
+      "name": "农业银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601298",
+      "name": "青岛港",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601318",
+      "name": "中国平安",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601319",
+      "name": "中国人保",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601328",
+      "name": "交通银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601336",
+      "name": "新华保险",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601360",
+      "name": "三六零",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601377",
+      "name": "兴业证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601390",
+      "name": "中国中铁",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601398",
+      "name": "工商银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601399",
+      "name": "国机重装",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601456",
+      "name": "国联民生",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601555",
+      "name": "东吴证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601567",
+      "name": "三星电气",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601577",
+      "name": "长沙银行",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601598",
+      "name": "中国外运",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601600",
+      "name": "中国铝业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601601",
+      "name": "中国太保",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601607",
+      "name": "上海医药",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601608",
+      "name": "中信重工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601611",
+      "name": "中国核建",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601615",
+      "name": "明阳智能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601618",
+      "name": "中国中冶",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601628",
+      "name": "中国人寿",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601633",
+      "name": "长城汽车",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601658",
+      "name": "邮储银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601665",
+      "name": "齐鲁银行",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601666",
+      "name": "平煤股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601668",
+      "name": "中国建筑",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601669",
+      "name": "中国电建",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601688",
+      "name": "华泰证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601689",
+      "name": "拓普集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601696",
+      "name": "中银证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601698",
+      "name": "中国卫通",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601717",
+      "name": "中创智领",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601727",
+      "name": "上海电气",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601728",
+      "name": "中国电信",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601766",
+      "name": "中国中车",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601788",
+      "name": "光大证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601799",
+      "name": "星宇股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601800",
+      "name": "中国交建",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601808",
+      "name": "中海油服",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601816",
+      "name": "京沪高铁",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601818",
+      "name": "光大银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601825",
+      "name": "沪农商行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601838",
+      "name": "成都银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601857",
+      "name": "中国石油",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601865",
+      "name": "福莱特",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601866",
+      "name": "中远海发",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601868",
+      "name": "中国能建",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601869",
+      "name": "长飞光纤",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601872",
+      "name": "招商轮船",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601877",
+      "name": "正泰电器",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601878",
+      "name": "浙商证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601880",
+      "name": "辽港股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601881",
+      "name": "中国银河",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601888",
+      "name": "中国中免",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601898",
+      "name": "中煤能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601901",
+      "name": "方正证券",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601916",
+      "name": "浙商银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601919",
+      "name": "中远海控",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601928",
+      "name": "凤凰传媒",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601939",
+      "name": "建设银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601958",
+      "name": "金钼股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601966",
+      "name": "玲珑轮胎",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601988",
+      "name": "中国银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601990",
+      "name": "南京证券",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601991",
+      "name": "大唐发电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601995",
+      "name": "中金公司",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601997",
+      "name": "贵阳银行",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "601998",
+      "name": "中信银行",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603000",
+      "name": "人民网",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603019",
+      "name": "中科曙光",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603049",
+      "name": "中策橡胶",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603077",
+      "name": "和邦生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603083",
+      "name": "剑桥科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603087",
+      "name": "甘李药业",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603092",
+      "name": "德力佳",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603119",
+      "name": "浙江荣泰",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603129",
+      "name": "春风动力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603156",
+      "name": "养元饮品",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603160",
+      "name": "汇顶科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603175",
+      "name": "超颖电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603179",
+      "name": "新泉股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603225",
+      "name": "新凤鸣",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603233",
+      "name": "大参林",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603256",
+      "name": "宏和科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603259",
+      "name": "药明康德",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603260",
+      "name": "合盛硅业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603288",
+      "name": "海天味业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603290",
+      "name": "斯达半导",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603296",
+      "name": "华勤技术",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603298",
+      "name": "杭叉集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603308",
+      "name": "应流股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603338",
+      "name": "浙江鼎力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603341",
+      "name": "龙旗科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603345",
+      "name": "安井食品",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603369",
+      "name": "今世缘",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603379",
+      "name": "三美股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603392",
+      "name": "万泰生物",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603444",
+      "name": "吉比特",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603486",
+      "name": "科沃斯",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603501",
+      "name": "豪威集团",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603529",
+      "name": "爱玛科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603565",
+      "name": "中谷物流",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603568",
+      "name": "伟明环保",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603589",
+      "name": "口子窖",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603596",
+      "name": "伯特利",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603605",
+      "name": "珀莱雅",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603606",
+      "name": "东方电缆",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603650",
+      "name": "彤程新材",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603658",
+      "name": "安图生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603659",
+      "name": "璞泰来",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603688",
+      "name": "石英股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603699",
+      "name": "纽威股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603728",
+      "name": "鸣志电器",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603737",
+      "name": "三棵树",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603766",
+      "name": "隆鑫通用",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603786",
+      "name": "科博达",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603799",
+      "name": "华友钴业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603806",
+      "name": "福斯特",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603816",
+      "name": "顾家家居",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603833",
+      "name": "欧派家居",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603858",
+      "name": "步长制药",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603885",
+      "name": "吉祥航空",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603893",
+      "name": "瑞芯微",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603899",
+      "name": "晨光股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603920",
+      "name": "世运电路",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603939",
+      "name": "益丰药房",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603979",
+      "name": "金诚信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603986",
+      "name": "兆易创新",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "603993",
+      "name": "洛阳钼业",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "605117",
+      "name": "德业股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "605358",
+      "name": "立昂微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "605499",
+      "name": "东鹏饮料",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "605589",
+      "name": "圣泉集团",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688002",
+      "name": "睿创微纳",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688008",
+      "name": "澜起科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688009",
+      "name": "中国通号",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688012",
+      "name": "中微公司",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688017",
+      "name": "绿的谐波",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688018",
+      "name": "乐鑫科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688019",
+      "name": "安集科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688027",
+      "name": "国盾量子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688036",
+      "name": "传音控股",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688037",
+      "name": "芯源微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688041",
+      "name": "海光信息",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688047",
+      "name": "龙芯中科",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688052",
+      "name": "纳芯微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688065",
+      "name": "凯赛生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688072",
+      "name": "拓荆科技",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688082",
+      "name": "盛美上海",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688099",
+      "name": "晶晨股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688111",
+      "name": "金山办公",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688114",
+      "name": "华大智造",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688120",
+      "name": "华海清科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688122",
+      "name": "西部超导",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688126",
+      "name": "沪硅产业",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688166",
+      "name": "博瑞医药",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688169",
+      "name": "石头科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688172",
+      "name": "燕东微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688180",
+      "name": "君实生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688183",
+      "name": "生益电子",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688187",
+      "name": "时代电气",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688188",
+      "name": "柏楚电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688192",
+      "name": "迪哲医药",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688200",
+      "name": "华峰测控",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688213",
+      "name": "思特威",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688220",
+      "name": "翱捷科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688223",
+      "name": "晶科能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688234",
+      "name": "天岳先进",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688235",
+      "name": "百济神州",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688248",
+      "name": "南网科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688256",
+      "name": "寒武纪",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688266",
+      "name": "泽璟制药",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688271",
+      "name": "联影医疗",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688278",
+      "name": "特宝生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688281",
+      "name": "华秦科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688295",
+      "name": "中复神鹰",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688297",
+      "name": "中无人机",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688301",
+      "name": "奕瑞科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688303",
+      "name": "大全能源",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688313",
+      "name": "仕佳光子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688318",
+      "name": "财富趋势",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688322",
+      "name": "奥比中光",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688331",
+      "name": "荣昌生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688336",
+      "name": "三生国健",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688343",
+      "name": "云天励飞",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688347",
+      "name": "华虹宏力",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688349",
+      "name": "三一重能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688361",
+      "name": "中科飞测",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688363",
+      "name": "华熙生物",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688375",
+      "name": "国博电子",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688385",
+      "name": "复旦微电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688387",
+      "name": "信科移动",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688396",
+      "name": "华润微",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688411",
+      "name": "海博思创",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688425",
+      "name": "铁建重工",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688469",
+      "name": "芯联集成",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688472",
+      "name": "阿特斯",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688475",
+      "name": "萤石网络",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688498",
+      "name": "源杰科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688506",
+      "name": "百利天恒",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688520",
+      "name": "神州细胞",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688521",
+      "name": "芯原股份",
+      "indexes": "CSI300",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688538",
+      "name": "和辉光电",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688561",
+      "name": "奇安信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688563",
+      "name": "航材股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688568",
+      "name": "中科星图",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688578",
+      "name": "艾力斯",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688582",
+      "name": "芯动联科",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688599",
+      "name": "天合光能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688608",
+      "name": "恒玄科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688615",
+      "name": "合合信息",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688617",
+      "name": "惠泰医疗",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688629",
+      "name": "华丰科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688676",
+      "name": "金盘科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688692",
+      "name": "达梦数据",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688702",
+      "name": "盛科通信",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688708",
+      "name": "佳驰科技",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688709",
+      "name": "成都华微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688728",
+      "name": "格科微",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688772",
+      "name": "珠海冠宇",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688777",
+      "name": "中控技术",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688778",
+      "name": "厦钨新能",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688819",
+      "name": "天能股份",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "688981",
+      "name": "中芯国际",
+      "indexes": "CSI300|CSIA50",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    },
+    {
+      "code": "689009",
+      "name": "九号公司",
+      "indexes": "CSI500",
+      "quality_status": "pending",
+      "valuation_status": "pending"
+    }
+  ]
+}
