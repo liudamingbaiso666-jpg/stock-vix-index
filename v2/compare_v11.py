@@ -26,10 +26,16 @@ def compare(input_csv, output_csv):
     d = d[d.selloff_context.astype(str).str.lower().isin(("true", "1"))].copy()
     if d.empty:
         raise ValueError("No selloff-context observations")
+    def quartile(x):
+        # Preserve missing data and tied values; do not fabricate distinctions.
+        result = pd.Series(float("nan"), index=x.index)
+        valid = x.dropna()
+        if len(valid) < 4 or valid.nunique() < 4:
+            return result
+        result.loc[valid.index] = pd.qcut(valid, 4, labels=False, duplicates="drop").astype(float) + 1
+        return result
     for col in FIELDS:
-        d[col + "_quartile"] = d.groupby("date")[col].transform(
-            lambda x: pd.qcut(x.rank(method="average"), 4, labels=False, duplicates="drop") + 1
-            if x.notna().sum() >= 4 else pd.Series(float("nan"), index=x.index))
+        d[col + "_quartile"] = d.groupby("date")[col].transform(quartile)
     rows = []
     for factor in FIELDS:
         for q, g in d.groupby(factor + "_quartile", dropna=True):
