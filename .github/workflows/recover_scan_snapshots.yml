@@ -1,0 +1,73 @@
+name: Recover daily scan snapshots from Actions artifact
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Successful Daily 52-week low scanner run ID'
+        required: true
+        default: '42543915237'
+        type: string
+permissions:
+  actions: read
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2-stock-universe
+          fetch-depth: 0
+      - name: Download historical scan artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ inputs.source_run_id }}
+        run: |
+          mkdir -p recovered
+          gh run download "$SOURCE_RUN" --repo "$GITHUB_REPOSITORY" --name daily-52week-scan --dir recovered
+          echo 'Recovered file inventory:'
+          find recovered -maxdepth 3 -type f | sort
+      - name: Validate and archive only complete matched pairs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          source=Path("recovered")
+          destination=Path("v2/history")
+          destination.mkdir(parents=True,exist_ok=True)
+          pairs=0
+          for low in sorted(source.rglob("low52_*.csv")):
+              pressure=low.with_name(low.name.replace("low52_","pressure_",1))
+              if not pressure.is_file():
+                  print(f"Skipping unmatched {low.name}")
+                  continue
+              d=pd.read_csv(low,dtype={"code":str})
+              p=pd.read_csv(pressure,dtype={"code":str})
+              if d.empty or p.empty or not {"code","date","close","repair_score"}.issubset(d.columns) or not {"code","date","pressure_score"}.issubset(p.columns):
+                  print(f"Skipping invalid pair {low.name}")
+                  continue
+              if d.duplicated(["code","date"]).any() or p.duplicated(["code","date"]).any():
+                  raise SystemExit(f"Duplicate code/date in {low.name}")
+              if not set(map(tuple,p[["code","date"]].to_numpy())).issubset(set(map(tuple,d[["code","date"]].to_numpy()))):
+                  raise SystemExit(f"Mismatched pressure rows in {low.name}")
+              for file in (low,pressure):
+                  target=destination/file.name
+                  if target.exists() and target.read_bytes()!=file.read_bytes():
+                      raise SystemExit(f"Refusing overwrite of different existing snapshot {target}")
+                  target.write_bytes(file.read_bytes())
+              print(f"Recovered {low.name} and {pressure.name}; rows={len(d)}")
+              pairs+=1
+          if pairs==0:
+              raise SystemExit("No valid matched low52/pressure pairs in artifact")
+          PY
+      - name: Commit recovered snapshots
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f v2/history/low52_*.csv v2/history/pressure_*.csv
+          if git diff --cached --quiet; then
+            echo 'No new snapshots to recover'
+          else
+            git commit -m 'Recover historical P/R snapshots from workflow artifact'
+            git push origin HEAD:v2-stock-universe
+          fi
