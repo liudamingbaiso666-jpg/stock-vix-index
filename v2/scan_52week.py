@@ -31,7 +31,8 @@ def scan_one(code, name, end_date):
             overlap_start = cached.iloc[-6]["date"].strftime("%Y%m%d")
             try:
                 new, source = fetch_daily(code, overlap_start, end_date,
-                    preferred=cached_provider, min_sessions=1, allow_fallback=False)
+                    preferred=cached_provider, min_sessions=1, allow_fallback=False,
+                    required_date=end_date)
                 overlap = cached.merge(new, on="date", suffixes=("_old", "_new"))
                 if overlap.empty or any(
                     ((overlap[f"{col}_old"] - overlap[f"{col}_new"]).abs() >
@@ -41,14 +42,20 @@ def scan_one(code, name, end_date):
                     raise ValueError("qfq adjustment revision or missing overlap")
                 d = combine_cached_and_new(cached, new)
                 provider = source
-            except ValueError:
-                # Changed adjustments require a complete provider-consistent refresh.
-                d, provider = fetch_daily(code, start, end_date)
             except Exception as exc:
-                # A transient incremental outage must not trigger 800 full downloads.
-                raise RuntimeError(f"incremental update failed for {code}: {exc}") from exc
+                # Stale/failed incremental updates or adjustment revisions must
+                # trigger a full, provider-consistent refresh. Try the independent
+                # provider first; NEVER splice Eastmoney bars onto Sina cache.
+                other_provider = "eastmoney" if cached_provider == "sina" else "sina"
+                print(f"REFRESH {code}: incremental {cached_provider} failed "
+                      f"({str(exc)[:100]}); trying full {other_provider} history",
+                      flush=True)
+                d, provider = fetch_daily(code, start, end_date,
+                                          preferred=other_provider,
+                                          required_date=end_date)
     else:
-        d, provider = fetch_daily(code, start, end_date)
+        d, provider = fetch_daily(code, start, end_date,
+                                  required_date=end_date)
     store_cache(cache_dir, code, d)
     provider_file.write_text(provider, encoding="utf-8")
     d["date"] = pd.to_datetime(d["date"])
