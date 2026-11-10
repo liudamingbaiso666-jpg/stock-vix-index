@@ -32,7 +32,7 @@ def _validate(raw, provider, min_sessions=253):
         raise ValueError(f"{provider}: negative volume")
     return d.iloc[-253:].copy()
 
-def fetch_daily(code, start_date, end_date, preferred="sina", min_sessions=253, allow_fallback=True):
+def fetch_daily(code, start_date, end_date, preferred="sina", min_sessions=253, allow_fallback=True, required_date=None):
     """Prefer independent Sina history; use Eastmoney only if needed.
     Both use qfq but adjustments may differ; do not combine bars across providers.
     """
@@ -51,7 +51,15 @@ def fetch_daily(code, start_date, end_date, preferred="sina", min_sessions=253, 
             else:
                 raw=ak.stock_zh_a_hist(symbol=str(code),period="daily",
                       start_date=start_date,end_date=end_date,adjust="qfq")
-            return _validate(raw,provider,min_sessions=min_sessions),provider
+            d = _validate(raw,provider,min_sessions=min_sessions)
+            # A structurally valid history can still lag the requested trading day.
+            # Require freshness to trigger independent-provider fallback.
+            if required_date is not None:
+                required = pd.Timestamp(required_date).normalize()
+                observed = d["date"].max().normalize()
+                if observed != required:
+                    raise ValueError(f"{provider}: stale latest bar {observed.date()}, expected {required.date()}")
+            return d,provider
         except Exception as exc:
             errors.append(f"{provider}: {str(exc)[:120]}")
     raise RuntimeError("; ".join(errors))
