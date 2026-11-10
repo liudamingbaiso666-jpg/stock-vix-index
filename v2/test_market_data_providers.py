@@ -35,6 +35,32 @@ class ProviderTests(unittest.TestCase):
 
     @patch("market_data_providers.ak.stock_zh_a_hist")
     @patch("market_data_providers.ak.stock_zh_a_daily")
+    def test_fallback_when_sina_returns_yesterday(self,sina,eastmoney):
+        complete=self.make_data()
+        sina.return_value=complete.iloc[:-1].copy()
+        eastmoney.return_value=complete.rename(columns={
+            "date":"日期","open":"开盘","high":"最高","low":"最低",
+            "close":"收盘","volume":"成交量"})
+        expected=complete["date"].max().strftime("%Y%m%d")
+        result,provider=fetch_daily("600000","20250101","20260101",
+                                     required_date=expected)
+        self.assertEqual(provider,"eastmoney")
+        self.assertEqual(result["date"].max(),complete["date"].max())
+
+    @patch("market_data_providers.ak.stock_zh_a_hist")
+    @patch("market_data_providers.ak.stock_zh_a_daily")
+    def test_both_sources_stale_must_not_publish(self,sina,eastmoney):
+        stale=self.make_data().iloc[:-1].copy()
+        sina.return_value=stale
+        eastmoney.return_value=stale.rename(columns={
+            "date":"日期","open":"开盘","high":"最高","low":"最低",
+            "close":"收盘","volume":"成交量"})
+        expected=self.make_data()["date"].max().strftime("%Y%m%d")
+        with self.assertRaisesRegex(RuntimeError,"stale latest bar"):
+            fetch_daily("600000","20250101","20260101",required_date=expected)
+
+    @patch("market_data_providers.ak.stock_zh_a_hist")
+    @patch("market_data_providers.ak.stock_zh_a_daily")
     def test_rejects_bad_ohlc(self,sina,eastmoney):
         bad=self.make_data()
         bad["high"]=8
